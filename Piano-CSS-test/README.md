@@ -1,4 +1,4 @@
-# HTML/CSS \_\_ Nazwa pliku
+# HTML/CSS \_\_ Piano CSS test
 
 ## Description
 
