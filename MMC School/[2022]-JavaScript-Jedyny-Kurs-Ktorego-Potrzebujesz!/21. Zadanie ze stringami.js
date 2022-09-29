@@ -48,7 +48,7 @@ console.log(text7.split(','));
 //Gdyby chcieć usunąć spacje na początkach i końcach wyrazów przy text7:
 function RemoveWhitespacesInArray(str) {
 for (let i=0; i<str.length; i++) {
-    str[i] = str[i].trim().trimEnd();
+    str[i] = str[i].trim();
 }
 return str;
 }
