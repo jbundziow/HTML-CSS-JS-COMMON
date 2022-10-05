@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: grey;
+}
+
+header {
+  background-color: blueviolet;
+  padding: 1rem;
+}
+
+#first {
+  background-color: green;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+#main-text {
+  align-self: center;
+  margin: 1rem 10rem;
+  max-width: 1500px;
+}
+
+.background-icon {
+  font-size: 9rem;
+}
