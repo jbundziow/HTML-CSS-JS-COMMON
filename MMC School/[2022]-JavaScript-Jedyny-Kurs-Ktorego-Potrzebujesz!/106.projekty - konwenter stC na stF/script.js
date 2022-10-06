@@ -9,45 +9,58 @@ const one = document.querySelector('.one');
 const two = document.querySelector('.two');
 
 
-//console.log(enteredValue.value);
 
 
-//TODO: round to 2 numbers after . ; e.g. 25.23
+// **************************** FUNCTIONS ****************************
+
 const convertTemperatures = () => {
     if(enteredValue.value == "") {
         resultParagraph.textContent = "You have not entered any value!";
-        resultParagraph.style.color = "red";
-        //TODO: red border and shake element!!!
+        ColorRedAndShakeInput();
         return; //exit
     }
     let result;
         if (isCelsiusToFahrenheit) {
+            if (enteredValue.value < -273.15) {
+                resultParagraph.textContent = '-273.15°C is an "absolute zero".';
+                ColorRedAndShakeInput();
+            }
+            else {
         result = 9/5*enteredValue.value+32;
-        resultParagraph.textContent = `${enteredValue.value}°C equals ${result}°F`;
+        resultParagraph.textContent = `${enteredValue.value}°C equals ${result.toFixed(2)}°F`;
+        resultParagraph.style.color = "white";
+            }
         }
         else {
+            if (enteredValue.value < -459.67) {
+                resultParagraph.textContent = '-459.67°F is an "absolute zero".';
+                ColorRedAndShakeInput();
+            }
+            else {
             result = 5/9*(enteredValue.value-32);
-            resultParagraph.textContent = `${enteredValue.value}°F equals ${result}°C`;
+            resultParagraph.textContent = `${enteredValue.value}°F equals ${result.toFixed(2)}°C`;
+            resultParagraph.style.color = "white";
+            }
         }
 }
 
 const reset = () => {
 enteredValue.value = null;
 resultParagraph.textContent = null;
+removeBoxShadow();
 }
 
 const changeUnit = () => {
+    removeBoxShadow();
+
     if (isCelsiusToFahrenheit) {
         one.textContent = '°F';
         two.textContent = '°C';
-        //TODO: change min/max in number input in html (not out of range)
-        //-273.15 C is minimum
         isCelsiusToFahrenheit = false;
     }
     else {
         one.textContent = '°C';
         two.textContent = '°F';
-        //TODO: change min/max in number input in html (not out of range)
         isCelsiusToFahrenheit = true;
     }
 
@@ -59,6 +72,20 @@ const changeUnit = () => {
     }
 }
 
+const ColorRedAndShakeInput = () => {
+    resultParagraph.style.color = "red";
+    enteredValue.classList.add('wrongValueShake');
+    enteredValue.classList.add('wrongValueBoxShadow');
+    setTimeout(() => {enteredValue.classList.remove('wrongValueShake');}, 300);
+}
+
+const removeBoxShadow = () => enteredValue.classList.remove('wrongValueBoxShadow');
+
+// **************************** end FUNCTIONS ****************************
+
+
+
 btnConv.addEventListener('click', convertTemperatures);
 btnReset.addEventListener('click', reset);
 btnChange.addEventListener('click', changeUnit);
+enteredValue.addEventListener('click', removeBoxShadow);
