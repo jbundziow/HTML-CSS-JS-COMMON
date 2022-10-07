@@ -1,0 +1,34 @@
+/* NORMALIZE CSS */ 
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid red; /* DELETE LATER */
+  }
+  
+  /* FONT-SIZE */
+  html {
+    font-size: 62.5%; /* after it: 1rem=10px, 2rem=20px, 3rem=30px */
+  }
+  
+  body {
+    background-color: black;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vw;
+    justify-content: center;
+  }
+
+
+  h1 {
+    color: white;
+  }
+
+  img {
+    width: 70%;
+    height: 70%;
+  }
