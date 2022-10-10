@@ -15,9 +15,32 @@
     ></script>
   </head>
   <body>
-    <h1>Text 1 <i class="fa-solid fa-heart"></i></h1>
-    <h1>Text 2 <i class="fa-solid fa-ghost"></i></h1>
-    <h1>Text 3 <i class="fa-solid fa-dice-d6"></i></h1>
+    <h1>
+      setAttribute(), removeAttribute(), hasAttribute(), getAttribute() -
+      EXAMPLE
+      <i class="fa-solid fa-heart"></i>
+    </h1>
+    <a href="https://github.com/jbundziow" target="_blank"
+      >I'm link. Click me!</a
+    >
+    <div class="btns-container">
+      <button class=".btn-set" type="button" onclick="clickedSet()">
+        setAttribute()
+      </button>
+      <button class=".btn-remove" type="button" onclick="clickedRemove()">
+        removeAttribute()
+      </button>
+      <button class=".btn-has" type="button" onclick="clickedHas()">
+        hasAttribute()
+      </button>
+      <button class=".btn-get" type="button" onclick="clickedGet()">
+        getAttribute()
+      </button>
+    </div>
+    <div class="results">
+      <p>Console:</p>
+      <textarea rows="10" cols="50" readonly></textarea>
+    </div>
 
     <script src="./script.js"></script>
   </body>
