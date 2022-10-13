@@ -12,3 +12,17 @@ const facts = [
 	'Żeby wejść na Wieżę Eiffla trzeba pokonać aż 1710 stopni.'
 ]
 
+//GET DAY OF THE WEEK
+//const dayOfWeekDigit = new Date().getDay(); //e.g. thursday = 4
+const dayOfTheWeekToday = new Date().toLocaleString('pl', {weekday: 'long'}); //e.g. 'czwartek'
+
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+currentDay.textContent = capitalizeFirstLetter(dayOfTheWeekToday); //e.g. 'Czwartek'
+
+
+//GET RANDOM FACT
+const randomFactNumber = Math.floor(Math.random() * facts.length); //random number from 0 to 7
+funFact.textContent = facts[randomFactNumber];
