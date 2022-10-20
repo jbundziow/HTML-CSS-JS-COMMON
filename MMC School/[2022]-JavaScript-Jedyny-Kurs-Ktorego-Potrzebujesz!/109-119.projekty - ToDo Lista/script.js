@@ -4,6 +4,14 @@ let addBtn;
 let ulList;
 let newTodo; //new todo as 'li'
 
+//popup
+let popup;
+let popupInfo;
+let todoToEdit;
+let popupInput;
+let popupAddBtn;
+let popupCloseBtn;
+
 const main = () => {
     prepareDOMElements();
     prepareDOMEEvents();
@@ -14,11 +22,22 @@ const prepareDOMElements = () => {
     errorInfo = document.querySelector('.error-info');
     addBtn = document.querySelector('.btn-add');
     ulList = document.querySelector('.todolist > ul');
+
+    //popup
+    popup = document.querySelector('.popup');
+    popupInfo = document.querySelector('.popup-info');
+    popupInput = document.querySelector('.popup-input');
+    popupAddBtn = document.querySelector('.accept');
+    popupCloseBtn = document.querySelector('.cancel');
 }
 
 
 const prepareDOMEEvents = () => {
     addBtn.addEventListener('click', addNewTodo);
+    ulList.addEventListener('click', chechClick);
+    popupAddBtn.addEventListener('click', changeTodoText);
+    popupCloseBtn.addEventListener('click', closePopup);
+    todoInput.addEventListener('keyup', enterKeyCheck);
 }
 
 const addNewTodo = () => {
@@ -78,9 +97,55 @@ newTodo.innerHTML += `
 */
 }
 
+const chechClick = e => {
+if (e.target.matches('.complete')) {
+    e.target.closest('li').classList.toggle('completed'); //line-through text
+    e.target.classList.toggle('completed'); //line-through button
+}
+else if (e.target.matches('.edit')) {
+    editTodo(e);
+}
+else if (e.target.matches('.delete')) {
+    deleteTodo(e);
+}
+}
+
+const editTodo = (e) => {
+    todoToEdit = e.target.closest('li');
+    popupInput.value = todoToEdit.firstChild.textContent;
+    popup.style.display = 'flex';
+    popupInput.focus(); //set cursor on input
+}
+
+const changeTodoText = () => {
+    popupInfo.textContent = '';
+    if (popupInput.value === '') {
+        popupInfo.textContent = "Nie wprowadziłeś żadnego tekstu!"
+    }
+    else {
+        todoToEdit.firstChild.textContent = popupInput.value;
+        popupInput.value = '';
+        closePopup();
+    }
+}
+
+const closePopup = () => {
+    popup.style.display = 'none';
+    popupInfo.textContent = '';
+}
+
+const deleteTodo = (e) => {
+    e.target.closest('li').remove();
+    if(ulList.innerHTML.trim() === '') {
+        errorInfo.textContent = 'Brak zadań na liście.';
+    }
+}
+
+const enterKeyCheck = (e) => {
+    if (e.key === 'Enter') {
+        addNewTodo();
+    }
+}
 
 
-
-
-//ADDEVENTLISTENERS
 document.addEventListener('DOMContentLoaded', main);
