@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.box {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+}
+
+p {
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+button {
+  font-size: 3rem;
+  padding: 30px 100px;
+}
+
+button:hover {
+  cursor: pointer;
+}
