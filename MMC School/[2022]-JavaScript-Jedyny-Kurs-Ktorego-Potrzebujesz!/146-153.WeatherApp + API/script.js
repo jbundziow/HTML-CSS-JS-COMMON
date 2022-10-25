@@ -24,20 +24,20 @@ const convertCityNameToGeoCoordinates = async (city) => {
     const coordinates = [];
     await axios.get(URL)
     .then(response => coordinates.push(response.data[0].lat, response.data[0].lon))
-    .catch(err => console.error(err))
+    .catch(err => console.error('ERROR IN FUNCTION convertCityNameToGeoCoordinates(): ' + err))
     return coordinates;
 }
 
 const getWeather = async (city) => {
     const coordinates = await convertCityNameToGeoCoordinates(city);
-    const lat = coordinates[0];
-    const lon = coordinates[1];
     //null or empty = falsey value
-    if (!lat || !lon) {
+    if (!coordinates[0] || !coordinates[1]) {
         warning.textContent = "Takie miasto nie istnieje!";
-        return
+        return; //exit
     }
     else {
+        const lat = coordinates[0];
+        const lon = coordinates[1];
     console.log(lat);
     console.log(lon);
     }
