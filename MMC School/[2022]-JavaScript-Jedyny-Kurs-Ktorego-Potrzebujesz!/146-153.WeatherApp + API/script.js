@@ -9,6 +9,8 @@ const humidity = document.querySelector('.humidity')
 
 const API_KEY = 'a354e1a7e6f1a85637e40d5c9e07c2c8';
 
+input.focus();
+
 const btnClicked = () => {
     if (input.value === '') {
         warning.textContent = "Wpisz nazwę miasta!";
@@ -16,6 +18,7 @@ const btnClicked = () => {
     else {
         warning.textContent = '';
         getWeather(input.value);
+        input.focus();
     }
 }
 
@@ -69,25 +72,25 @@ const getWeather = async (city) => {
     const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pl&appid=${API_KEY}&units=metric`;
     await axios.get(URL)
     .then(response => {
-        console.log(response);
+        //console.log(response);
         cityName.textContent = response.data.name;
         weather.textContent = response.data.weather[0].main;
         temperature.textContent = `${response.data.main.temp}°C`;
         humidity.textContent = `${response.data.main.humidity}%`;
 
-        //https://openweathermap.org/weather-conditions
-        let iicon = response.data.weather[0].icon;
-        console.log(iicon);
-        const ID = 0; //to edit
-
-        if (ID)
-
-
+        const ID = response.data.weather[0].id;
+        photo.setAttribute('src',returnWeatherImg(ID));
+        input.value = '';
         })
     .catch(err => console.error('ERROR IN FUNCTION convertCityNameToGeoCoordinates(): ' + err));
     }
 }
 
 
-
+const enterKeyCheck = (e) => {
+    if (e.key === 'Enter') {
+        btnClicked();
+    }
+}
+input.addEventListener('keyup', enterKeyCheck);
 button.addEventListener('click', btnClicked);
