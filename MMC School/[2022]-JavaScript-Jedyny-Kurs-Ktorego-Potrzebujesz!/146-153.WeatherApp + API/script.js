@@ -28,6 +28,33 @@ const convertCityNameToGeoCoordinates = async (city) => {
     return coordinates;
 }
 
+const returnWeatherImg = (ID) => {
+    if (ID >= 200 && ID < 300) { //thunderstorm
+        return './img/thunderstorm.png';
+    }
+    else if (ID >= 300 && ID < 400) { //drizzle
+        return './img/drizzle.png';
+    }
+    else if (ID >= 500 && ID < 600) { //rain
+        return './img/rain.png';
+    }
+    else if (ID >= 600 && ID < 700) { //snow
+        return './img/ice.png';
+    }
+    else if (ID >= 700 && ID < 800) { //atmosphere
+        return './img/fog.png';
+    }
+    else if (ID === 800) { //clear
+        return './img/sun.png';
+    }
+    else if (ID > 800 && ID < 900) { //clouds
+        return './img/cloud.png';
+    }
+    else {
+        return './img/unknown.png';
+    }
+}
+
 const getWeather = async (city) => {
     const coordinates = await convertCityNameToGeoCoordinates(city);
     //null or empty = falsey value
@@ -51,6 +78,10 @@ const getWeather = async (city) => {
         //https://openweathermap.org/weather-conditions
         let iicon = response.data.weather[0].icon;
         console.log(iicon);
+        const ID = 0; //to edit
+
+        if (ID)
+
 
         })
     .catch(err => console.error('ERROR IN FUNCTION convertCityNameToGeoCoordinates(): ' + err));
