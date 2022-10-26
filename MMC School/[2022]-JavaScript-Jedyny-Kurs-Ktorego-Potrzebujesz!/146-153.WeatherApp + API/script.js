@@ -38,8 +38,22 @@ const getWeather = async (city) => {
     else {
         const lat = coordinates[0];
         const lon = coordinates[1];
-    console.log(lat);
-    console.log(lon);
+
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=pl&appid=${API_KEY}&units=metric`;
+    await axios.get(URL)
+    .then(response => {
+        console.log(response);
+        cityName.textContent = response.data.name;
+        weather.textContent = response.data.weather[0].main;
+        temperature.textContent = `${response.data.main.temp}°C`;
+        humidity.textContent = `${response.data.main.humidity}%`;
+
+        //https://openweathermap.org/weather-conditions
+        let iicon = response.data.weather[0].icon;
+        console.log(iicon);
+
+        })
+    .catch(err => console.error('ERROR IN FUNCTION convertCityNameToGeoCoordinates(): ' + err));
     }
 }
 
