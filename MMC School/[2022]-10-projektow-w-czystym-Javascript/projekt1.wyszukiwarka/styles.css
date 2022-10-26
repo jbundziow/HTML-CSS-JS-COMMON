@@ -1,0 +1,106 @@
+/* NORMALIZE CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: 0.5s linear;
+}
+
+body {
+  background-color: rgb(225, 225, 225);
+  font-family: "Montserrat", sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin: 50px 0px;
+  width: 40%;
+  max-width: 750px;
+  box-shadow: 0px 0px 15px 10px rgba(109, 106, 106, 1);
+}
+
+.header {
+  background-image: url("./img/drink-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  font-family: "Dancing Script", cursive;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 13px;
+  font-size: 3rem;
+  font-weight: 800;
+}
+input {
+  width: 90%;
+  opacity: 0.8;
+  font-size: 1.5rem;
+  border-radius: 5px;
+}
+
+.drinksList {
+  background-color: white;
+  padding: 20px 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+ul > li {
+  list-style-type: none;
+  padding: 10px 15px;
+}
+
+ul > li:not(:last-child) {
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1080px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 80%;
+  }
+
+  .wrapper {
+    width: 90%;
+  }
+
+  .header {
+    padding-left: 10px;
+  }
+
+  input {
+    width: 95%;
+  }
+
+  input::placeholder {
+    color: transparent;
+  }
+}
