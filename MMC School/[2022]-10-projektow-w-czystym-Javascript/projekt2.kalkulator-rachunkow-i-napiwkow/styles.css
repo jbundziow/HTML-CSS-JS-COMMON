@@ -1,0 +1,117 @@
+/*! ATTENTION: THAT LAYOUT IS NOT RESPONSIBLE!!!! */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: rgb(233, 233, 233);
+}
+
+.wrapper {
+  margin: 150px 0;
+  width: 30%;
+  max-width: 600px;
+  background-color: white;
+  box-shadow: 0px 0px 15px 15px rgb(69, 69, 70);
+  border-radius: 7px;
+}
+
+header,
+button {
+  background-color: green;
+}
+
+header {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 50px 0;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color: white;
+}
+
+header > h1 {
+  margin-bottom: 10px;
+}
+
+.input-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+label,
+input,
+select {
+  font-size: 1.7rem;
+}
+
+label {
+  display: block;
+  width: 90%;
+  margin: 5px 0;
+}
+
+input,
+select {
+  width: 90%;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  color: white;
+  font-size: 1.3rem;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(3, 70, 3);
+}
+
+.result-div {
+  height: 45px;
+}
+
+.result-info,
+.error-info {
+  text-align: center;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.final-cost {
+  font-size: 1.5rem;
+}
+
+.result-info {
+  font-weight: 600;
+}
+
+.error-info {
+  color: red;
+}
