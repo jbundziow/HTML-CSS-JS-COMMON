@@ -1,9 +1,11 @@
 const input = document.querySelector('input');
+const warningText = document.querySelector('.warning');
 
 const filterTheList = () => {
     const ulList = document.querySelector('ul');
     const liItems = ulList.querySelectorAll('li');
     let counter = 0;
+    warningText.textContent = '';
     for (let i=0; i<liItems.length; i++) {
         liItems[i].style.borderBottom = '1px solid rgb(224, 224, 224)'; //set border bottom for every elements
         if (liItems[i].textContent.toLowerCase().includes(input.value.toLowerCase())) {
@@ -14,7 +16,7 @@ const filterTheList = () => {
             counter ++;
         }
         if (counter === liItems.length) {
-            console.log('Lista jest pusta!!'); //TODO: add <p> to display it
+            warningText.textContent = 'Nic nie znaleziono...';
         }
     }
 
@@ -33,6 +35,3 @@ const filterTheList = () => {
 
 
 input.addEventListener('keyup', filterTheList)
-
-
-//TODO: ADD .shadow in css
