@@ -54,6 +54,7 @@ input {
   opacity: 0.8;
   font-size: 1.5rem;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .drinksList {
