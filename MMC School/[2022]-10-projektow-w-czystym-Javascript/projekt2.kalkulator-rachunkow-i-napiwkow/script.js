@@ -10,32 +10,41 @@ const errorInfo = document.querySelector('.error-info');
 const finalCost = document.querySelector('.final-cost');
 
 //! DELETE IT
-let x = false;
-setInterval(() => {
-    if (x) {
-        resultInfo.style.display = 'block';
-        errorInfo.style.display = 'none';
-        x = false;
-    }
-    else {
-        resultInfo.style.display = 'none';
-        errorInfo.style.display = 'block';
-        x = true;
-    }
-}, 1000);
+// let x = false;
+// setInterval(() => {
+//     if (x) {
+//         resultInfo.style.display = 'block';
+//         errorInfo.style.display = 'none';
+//         x = false;
+//     }
+//     else {
+//         resultInfo.style.display = 'none';
+//         errorInfo.style.display = 'block';
+//         x = true;
+//     }
+// }, 1000);
 //! XXXXXXXXXXX
 
 //functions
-const inputsAreEmpty = () => {
-    //TODO
+function isEmpty(str) {
+    return !str.trim().length;
 }
 
+const inputsAreEmpty = () => {
+    return isEmpty(price.value) || isEmpty(people.value) || parseFloat(tip.value) === 0 ? true : false;
+}
+//TODO: function to check if values are correct (price minimum 0; people === int)
 const countFinalCost = () => {
     if (inputsAreEmpty()) {
-        //empty
+        resultInfo.style.display = 'none';
+        errorInfo.style.display = 'block';
+        //TODO: shake form
     }
     else {
-        //count
+        const totalPrice = (1 + parseFloat(tip.value)) * parseFloat(price.value) / parseFloat(people.value);
+        finalCost.textContent = totalPrice;
+        resultInfo.style.display = 'block';
+        errorInfo.style.display = 'none';
     }
 }
 
