@@ -3,37 +3,41 @@
 const text = document.querySelector('.typing-animation')
 const startBtn = document.querySelector('button');
 
-let arr = ['Witam serdecznie.', 'Dzień dobry.', 'Hi guys.'];
-const logo = 'Company name';
+let arr = ['The first text.', 'The second text.', 'The third text.'];
+const endText = 'FINISH TEXT';
 
 
-let i = 0;
-let j = 0;
-const startAnimation = () => {
-    i=0;
-    text.textContent = '';
-    j = 0;
-
+const animateText = (input, output) => {
+    return new Promise((resolve,reject)=>{
+    let i=0;
+    output.textContent = '';
     const myDelay = setInterval(()=>{
-        if (j<arr.length) {
-        if (i<arr[j].length) {
-            text.textContent += arr[j].charAt(i);
+        if (i<input.length) {
+            output.textContent += input.charAt(i);
             i++;
     }
     else {
-        i=0;
-        j++;
+        clearInterval(myDelay);
+        resolve();
     }
-}
-else {
-    clearInterval(myDelay);
-    arr = ['New text', 'Hello world!', 'Yess'];
-}
-    },100)
-
+    },100)       
+})
 }
 
 
-startBtn.addEventListener('click', startAnimation);
+const wait = (milisec) => {
+    return new Promise((resolve,reject)=>{
+    setTimeout(()=>{resolve()}, milisec);
+    });
+}
+
+startBtn.addEventListener('click', async () => {
+    for (let i=0; i<arr.length; i++) {
+    await animateText(arr[i], text);
+    await wait(1000);
+    }
+    await wait(1500);
+    await animateText(endText, text);
+});
 
 
