@@ -1,0 +1,108 @@
+/* NORMALIZE CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* padding of header on the top */
+}
+
+.main-header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background-color: blueviolet;
+  z-index: 1;
+}
+
+.left {
+  position: fixed;
+  width: 15%;
+  top: 100px;
+  bottom: 0;
+  background-color: bisque;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.right {
+  position: fixed;
+  width: 15%;
+  top: 100px;
+  right: 0;
+  height: 100%;
+  background-color: bisque;
+  padding-top: 20px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  font-size: 2rem;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  width: 90%;
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+}
+
+a:hover {
+  background-color: yellow;
+}
+
+.active {
+  background-color: yellow;
+}
+
+main {
+  padding-top: 120px;
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-bottom: 30px;
+  background-color: thistle;
+}
+
+footer {
+  padding-top: 30px;
+  padding-left: 17%;
+  padding-right: 17%;
+  background-color: rgb(220, 212, 212);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 255, 255, 0.3);
+}
