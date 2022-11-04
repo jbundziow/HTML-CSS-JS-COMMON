@@ -61,10 +61,12 @@ a {
   margin: 3px;
 }
 
-a:hover {
-  background-color: yellow;
+/* because of that @media hover works on PCs, but it doesn't work on touch-devices (it's unwanted effect) */
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    background-color: red;
+  }
 }
-
 .active {
   background-color: yellow;
 }
