@@ -22,6 +22,7 @@
 
     <div class="wrapper">
       <p class="info">
+        <i class="fa-solid fa-palette"></i>
         <i class="fas fa-question"></i>
       </p>
       <h1>Stoper</h1>
@@ -35,18 +36,28 @@
         <button class="history">archiwum</button>
       </div>
       <ul class="time-list"></ul>
+
+      <div class="modal-color">
+        <div class="color color1"></div>
+        <div class="color color2"></div>
+        <div class="color color3"></div>
+      </div>
     </div>
 
-    <div class="modal-shadow">
+    <div class="modal-shadow modal-animation">
       <div class="modal">
         <h3>Instrukcja:</h3>
-        <p><i class="fas fa-play"></i> - start</p>
-        <p><i class="fas fa-pause"></i> - pauza</p>
-        <p><i class="fas fa-stop"></i> - stop</p>
+        <p><i class="iconColorChange fas fa-play"></i> - start</p>
+        <p><i class="iconColorChange fas fa-pause"></i> - pauza</p>
+        <p><i class="iconColorChange fas fa-stop"></i> - stop</p>
         <p>
-          <i class="fas fa-times"></i> - skasuj wszystko (łącznie z archiwum)
+          <i class="iconColorChange fas fa-times"></i> - skasuj wszystko
+          (łącznie z archiwum)
         </p>
-        <p><strong>archiwum</strong> - zobacz wcześniejsze pomiary</p>
+        <p>
+          <strong class="iconColorChange">archiwum</strong> - zobacz
+          wcześniejsze pomiary
+        </p>
         <button class="close">Zamknij</button>
       </div>
     </div>
