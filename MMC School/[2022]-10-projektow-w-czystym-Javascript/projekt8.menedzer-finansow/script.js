@@ -12,11 +12,16 @@ const categorySelect = document.querySelector('#category')
 const addTransactionBtn = document.querySelector('.add-transaction')
 const saveBtn = document.querySelector('.save')
 const cancelBtn = document.querySelector('.cancel')
-const deleteBtn = document.querySelector('.delete')
+const deleteBtn = document.getElementsByClassName('.delete')
 const deleteAllBtn = document.querySelector('.delete-all')
 
 const lightColorBtn = document.querySelector('.light')
 const darkColorBtn = document.querySelector('.dark')
+
+
+let transactionID = 0;
+
+
 
 
 const openTransactionPanel = () => {
@@ -30,14 +35,25 @@ const closeTransactionPanel = () => {
 
 const addTransaction = (name, amount, category) => {
     if (name !== '' && amount !== '' && parseFloat(amount) !== 0 && category !== 'none') {
-        if (parseFloat(amount) > 0) {
-            addIncome(name, parseFloat(amount).toFixed(2), getCategoryIcon(category));
+
+        const transactionDiv = document.createElement('div');
+        transactionDiv.classList.add('transaction');
+        transactionDiv.setAttribute('id',transactionID)
+        transactionDiv.innerHTML = `
+        <p class="transaction-name"><i class="${getCategoryIcon(category)}"></i> ${name}</p>
+        <p class="transaction-amount">${amount}zł 
+        <button class="delete" onclick=deleteTransaction(${transactionID})><i class="fas fa-times"></i></button>
+        </p>
+        `
+
+        if (parseFloat(amount) > 0) {  
+            incomeSection.append(transactionDiv)
         }
         else {
-            addExpense(name, parseFloat(amount).toFixed(2), getCategoryIcon(category));
+            expensesSection.append(transactionDiv)
         }
 
-        //at the end
+        transactionID++
         closeTransactionPanel();
     }
     else {
@@ -53,16 +69,46 @@ const clearInputs = () => {
 
 
 const getCategoryIcon = (categoryValue) => {
-    //TODO switch -> return fa icon
+    let result;
+    switch (categoryValue) {
+        case 'income':
+            result = 'fas fa-money-bill-wave'
+            break;
+
+        case 'shopping':
+            result = 'fas fa-cart-arrow-down'
+            break;
+
+            case 'food':
+            result = 'fas fa-hamburger'
+        break;
+
+            case 'cinema':
+                result = 'fas fa-film'
+                break;
+
+        default:
+            result = 'fa-solid fa-triangle-exclamation' //error
+            break;
+    }
+    return result;
 }
 
-const addIncome = (name, amount, category) => {
-    //TODO
+//TODO: change name 'element' to something more suitable
+const deleteTransaction = (id) => {
+    const transactions = document.querySelectorAll('.transaction');
+    transactions.forEach(element => {
+        if (parseInt(element.getAttribute('id')) === id) {
+            element.remove()
+        }
+    });
 }
 
-const addExpense = (name, amount, category) => {
-    //TODO
-}
+
+//TODO: function deleteAllTransactions
+
+//TODO: available funds count
+
 
 
 const changeStyle = (color) => {
