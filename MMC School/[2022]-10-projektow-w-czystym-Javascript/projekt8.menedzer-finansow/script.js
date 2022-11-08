@@ -66,15 +66,22 @@ const addExpense = (name, amount, category) => {
 
 
 const changeStyle = (color) => {
+    const lightColorCode = '#F9F9F9'
+    const darkColorCode = '#14161F'
+    const lightColorBorderCode = 'rgba(0, 0, 0, .2)'
+    const darkColorBorderCode = 'rgba(255, 255, 255, .2)'
+
     switch (color) {
         case 'light':
-            //TODO
-            console.log('clicked light'); //OK
+            document.documentElement.style.setProperty('--first-color', lightColorCode)
+            document.documentElement.style.setProperty('--second-color', darkColorCode)
+            document.documentElement.style.setProperty('--border-color', lightColorBorderCode)
             break;
     
         case 'dark':
-            //TODO
-            console.log('clicked dark'); //OK
+            document.documentElement.style.setProperty('--first-color', darkColorCode)
+            document.documentElement.style.setProperty('--second-color', lightColorCode)
+            document.documentElement.style.setProperty('--border-color', darkColorBorderCode)
             break;
     }
 }
