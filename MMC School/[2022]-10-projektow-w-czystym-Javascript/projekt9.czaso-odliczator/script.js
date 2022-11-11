@@ -121,16 +121,17 @@ const daysInMonth = (monthAsInt, yearAsInt) => {
 }
 
 
-const updateCounter = (miliseconds) => {
+const updateCounter = (ms) => {
     //TODO - display days, hours, minutes, seconds on main screen
-	//TODO - install moment.js
 	
-	//var diff = new moment.duration(ms);
-	//diff.asDays();     // # of days in the duration
-	//diff.asHours();    // # of hours in the duration
-	//diff.asMinutes();  // # of minutes in the duration
+	const diff = new moment.duration(ms);
+	console.log(diff.asDays());     // # of days in the duration
+	console.log(diff.asHours());    // # of hours in the duration
+	console.log(diff.asMinutes());  // # of minutes in the duration
 }
 
 settingsBtn.addEventListener('click', showSettingsPanel)
 saveEventBtn.addEventListener('click', saveNewEvent)
 // setInterval(() => {updateCounter(?????????????)}, 1000);
+
+updateCounter(259200000)
