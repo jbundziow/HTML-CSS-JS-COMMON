@@ -1,0 +1,94 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+  background-color: rgb(233, 233, 233);
+  margin-top: 70px;
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  padding: 0 30px;
+}
+
+.main-nav {
+  background-color: orchid;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav-buttons {
+  height: 100%;
+  display: flex;
+}
+
+.nav-buttons > a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+  padding: 0px 20px;
+  transition: background-color 0.5s;
+}
+
+.nav-buttons > a:hover,
+.nav-buttons > a:focus {
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.nav-search-input {
+  height: 100%;
+  width: 20%;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  transform: translateX(0px) scaleX(0);
+  transform-origin: right;
+  transition: transform 1s;
+}
+
+.active {
+  transform: translateX(0px) scaleX(1);
+}
+
+.search-button {
+  height: 100%;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  z-index: 1;
+}
+
+.search-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.search-button:focus {
+  background-color: rgb(174, 93, 171);
+  outline: none;
+}
