@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMC School</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--  W pierwszym kontenerze stwórz 4 DIV-y.
+            Na najmniejszej rozdzielczości, DIV-y mają mieć 12 kolumn.
+            Na rozdzielczości "small" mają mieć po 6 kolumn.
+            Na rozdzielczości >768px mają mieć po 4 kolumny.
+            Na rozdzielczości "large" mają mieć po 3 kolumny. -->
+    <div class="container">
+      <div class="row">
+        <h1>Container 1</h1>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">1</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">2</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">3</div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">4</div>
+      </div>
+    </div>
+
+    <!-- W drugim kontenerze stwórz 4 DIV-y.
+            Na najmniejszej rozdzielczości, DIV-y mają mieć 12 kolumn.
+            Na rozdzielczości >576px DIV-y 1 & 3 mają mieć po 12 kolumn, a DIV-y 2 & 4 mają mieć 6 kolumn.
+            Na rozdzielczości >768px DIV-y 1 & 3 mają mieć po 11 kolumn, a DIV-y 2 & 4 mają mieć 1 kolumnę.
+            Na rozdzielczości >1400px DIV-y mają mieć po 3 kolumny. -->
+    <div class="container">
+      <div class="row">
+        <h1>Container 2</h1>
+        <div class="col-12 col-sm-12 col-md-11 col-xxl-3">1</div>
+        <div class="col-12 col-sm-6 col-md-1 col-xxl-3">2</div>
+        <div class="col-12 col-sm-12 col-md-11 col-xxl-3">3</div>
+        <div class="col-12 col-sm-6 col-md-1 col-xxl-3">4</div>
+      </div>
+    </div>
+    <!--  W trzecim kontenerze stwórz 4 DIV-y.
+                Na najmniejszej rozdzielczości, DIV-y mają mieć 2 kolumny.
+                Na breakpoincie "średni" DIV-y mają mieć po 6 kolumn.
+                Na rozdzielczości >1200px DIV-y mają mieć po 1 kolumnie. -->
+    <div class="container">
+      <div class="row">
+        <h1>Container 3</h1>
+        <div class="col-2 col-md-6 col-xl-1">1</div>
+        <div class="col-2 col-md-6 col-xl-1">2</div>
+        <div class="col-2 col-md-6 col-xl-1">3</div>
+        <div class="col-2 col-md-6 col-xl-1">4</div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
