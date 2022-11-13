@@ -54,6 +54,7 @@ h2 {
   margin-bottom: 2em;
   color: #fff;
   font-size: 18px;
+  text-align: center;
 }
 
 #slider {
@@ -77,6 +78,7 @@ h2 {
   border-radius: 6px;
   transition-property: background-color;
   transition-duration: 3s;
+  background-color: transparent;
 }
 
 .square:hover {
