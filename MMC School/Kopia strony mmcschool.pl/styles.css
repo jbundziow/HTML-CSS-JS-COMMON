@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 /* NORMALIZE CSS */
 * {
   padding: 0;
@@ -9,10 +11,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 62.5%; /* after it: 1rem=10px, 2rem=20px, 3rem=30px */
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 /* ************************** GENERAL ************************** */
@@ -29,7 +32,68 @@ font-size: 1.6rem;
 
 .container {
   max-width: 1400px;
-  background-color: red; /*delete later*/
+  width: 100%;
+  /* background-color: red; delete later */
 }
 
-/* ************************************************************* */
+/* ************************** HEADER ************************** */
+
+.header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffff;
+  border-bottom: 1px solid #d8d8d8;
+
+  position: fixed;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.header__list-item {
+  padding: 1em;
+}
+
+.header__list-item > a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  transition: color 0.3s;
+}
+
+.header__list-item > a:hover {
+  color: #0076e8;
+}
+
+/* ************************** HOME ************************** */
+
+.home__block-before {
+  display: block;
+  height: 68px;
+}
+
+.home {
+  padding-top: 70px; /* beacause of header */
+  background-image: url(https://mmcschool.pl/dist/img/header-big.jpg);
+  /* position: relative; */
+  /* padding-top: 80px; */
+
+  height: 600px;
+  background-position: 50% 0%;
+  background-size: cover;
+  /* z-index: 0; */
+}
+
+/* ************************** FUTURE ************************** */
