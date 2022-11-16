@@ -48,6 +48,8 @@ body {
   border-bottom: 1px solid #d8d8d8;
 
   position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
 .header__wrapper {
@@ -85,15 +87,22 @@ body {
 }
 
 .home {
-  padding-top: 70px; /* beacause of header */
+  margin-top: 68px; /* beacause of header */
   background-image: url(https://mmcschool.pl/dist/img/header-big.jpg);
-  /* position: relative; */
-  /* padding-top: 80px; */
-
   height: 600px;
   background-position: 50% 0%;
   background-size: cover;
-  /* z-index: 0; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* ************************** FUTURE ************************** */
