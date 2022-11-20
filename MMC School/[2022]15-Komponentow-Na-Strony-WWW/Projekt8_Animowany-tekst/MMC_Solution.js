@@ -12,7 +12,6 @@ let speed = 80
 
 const writingAnimation = () => {
 	text.innerHTML = inputValue.slice(0, index)
-
 	index++
 
 	if (index > inputValue.length) return
