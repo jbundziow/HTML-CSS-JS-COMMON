@@ -256,3 +256,77 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+
+/* **************************  NEWSLETTER ************************** */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* **************************  COMMUNITY ************************** */
+.community {
+  display: flex;
+  flex-direction: column;
+}
+
+.community__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* **************************  MAP ************************** */
+.map {
+  display: flex;
+  flex-direction: column;
+}
+
+.map__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* **************************  MORE COURSES ************************** */
+.moreCourses {
+  display: flex;
+  flex-direction: column;
+}
+
+.moreCourses__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* **************************  CONTACT ************************** */
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* **************************  FOOTER ************************** */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid tomato;
+}
