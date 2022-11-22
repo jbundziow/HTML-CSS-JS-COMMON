@@ -14,3 +14,71 @@ body {
 
   color: #fff;
 }
+
+.timeline {
+  max-width: 80%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  left: 50%;
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: #0076e8;
+}
+
+.timeline ul {
+  width: 100%;
+  list-style-type: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline li {
+  display: flex;
+  width: 45%;
+  padding: 1em;
+  margin: 0.8em 0em;
+  border: 1px solid #0076e8;
+  border-radius: 7px;
+  position: relative;
+}
+
+.timeline li:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.timeline li:nth-child(even) {
+  align-self: flex-end;
+}
+
+.timeline li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  /* left: 105%; */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #0076e8;
+}
+
+.timeline li:nth-child(odd)::after {
+  left: 112%;
+  background-color: green;
+}
+
+.timeline li:nth-child(even)::after {
+  right: 108%;
+}
