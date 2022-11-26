@@ -1,0 +1,67 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #333;
+}
+
+.hide {
+	display: none;
+}
+
+.cookie-box {
+	position: fixed;
+	bottom: 0;
+	padding: 2em;
+	height: 300px;
+	width: 100%;
+	text-align: center;
+	font-size: 2rem;
+	background-color: #fff;
+	opacity: 0;
+	transform: translateY(100%);
+	animation: show-cookies 0.5s 0.5s forwards;
+}
+
+.cookie-box::before {
+	position: absolute;
+	top: -280px;
+	right: 50px;
+	width: 400px;
+	height: 400px;
+	background-image: url('https://lezebre.lu/images/detailed/26/65626-JDM-Cookie-Monster.png');
+	background-size: cover;
+	content: '';
+}
+
+
+.cookie-btn {
+	margin-top: 1em;
+	padding: 0.5em 1em;
+	font-size: 1.6rem;
+	border: 5px solid #232020;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #2890D0;
+	transition: background-color .3s;
+	cursor: pointer;
+}
+.cookie-btn:hover {
+	background-color: #1d77af;
+}
+
+@keyframes show-cookies {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+}
