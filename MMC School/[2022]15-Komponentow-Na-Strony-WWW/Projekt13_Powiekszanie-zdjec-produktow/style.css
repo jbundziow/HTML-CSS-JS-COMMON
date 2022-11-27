@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background-color: #333;
+}
+
+.image-box {
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.zoom-img {
+  cursor: zoom-in;
+  transform: scale(2);
+}
