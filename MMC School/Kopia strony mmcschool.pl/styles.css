@@ -56,6 +56,11 @@ body {
   background-color: rgb(248, 248, 248);
 }
 
+.bg-dark-blue {
+  background-color: rgb(0,118,232);
+}
+
+
 .mmcLink {
   position: relative;
   color: #000;
@@ -264,10 +269,60 @@ body {
   flex-direction: column;
 }
 
+.newsletter, .newsletter__title {
+  color: white;
+  border-color: white;
+}
+
 .newsletter__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter_textblock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;  
+}
+
+.newsletter_textblock > p {
+  font-size: 2rem;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.newsletter__form {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
+  /* border: 1px solid yellow; */
+}
+
+.newsletter-name-input, .newsletter-email-input, .newsletter-send-button {
+  margin-right: 0.5em;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: 300;
+}
+
+.newsletter-name-input, .newsletter-email-input {
+  padding: 0.5em;
+  font-size: 2rem;
+  width: 150px;
+}
+
+.newsletter-send-button {
+  font-size: 1.5rem;
+  padding: 0.9em;
+  width: 7%;
+  background-color: black;
+  color: white;
 }
 
 
