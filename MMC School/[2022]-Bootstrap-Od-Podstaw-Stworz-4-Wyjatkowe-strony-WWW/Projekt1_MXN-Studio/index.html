@@ -21,7 +21,7 @@
     />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
+  <body data-bs-spy="scroll" data-bs-target=".navbar-nav">
     <!-- ************************* NAVBAR ************************* -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 fixed-top">
       <div class="container">
@@ -267,10 +267,62 @@
           </div>
         </div>
       </section>
+
+      <section id="contact" class="contact bg-dark text-light py-5">
+        <div class="container text-center py-5">
+          <p class="display-3 pb-lg-5 text-uppercase">Napisz do nas!</p>
+          <div class="row">
+            <div class="col-lg-9 my-5 m-lg-0">
+              <form>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Imię i nazwisko"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Adres email"
+                  />
+                </div>
+                <div class="input-group mb-3">
+                  <textarea
+                    rows="6"
+                    class="form-control"
+                    placeholder="Treść wiadomości"
+                  ></textarea>
+                </div>
+                <input
+                  type="submit"
+                  value="Wyślij"
+                  class="btn-light px-4 py-2 submit-btn"
+                />
+              </form>
+            </div>
+            <div class="col-lg-3 mt-4 m-lg-0 contact-info">
+              <h3>Adres:</h3>
+              <p class="orange-color">MXN Studio</p>
+              <p>
+                <i class="bi bi-geo-alt orange-color"></i> ul. Sezamkowa 8
+                <br />
+                00-000 Kraków
+              </p>
+              <p><i class="bi bi-phone orange-color"></i> +48 111 222 333</p>
+              <p><i class="bi bi-at orange-color"></i> kontakt@mnxstudio.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div style="height: 200vh"></div>
+    <footer class="bg-dark text-light border-top">
+      <p class="mb-0 text-center py-5">&copy; MXN Studio</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
