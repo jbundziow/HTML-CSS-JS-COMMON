@@ -97,8 +97,8 @@
 
     <!-- ========================== SECTION ACCORDION ========================== -->
     <div class="container-fluid bg-gray">
-      <div class="container">
       <section class="accordion">
+        <div class="container">
           <div class="section-title-wrapper">
             <h2 class="accordion__title section-title">
               Co nas <span>wyróżnia?</span>
@@ -151,7 +151,9 @@
 
 
         <!-- ========================== SECTION NEWSLETTER ========================== -->
-        <div class="container-fluid bg-dark-blue">
+        <div class="container-fluid bg-dark-blue newsletter-bg">
+          <div class="newsletter-bg-square-big"></div>
+          <div class="newsletter-bg-square-small"></div>
           <div class="container">
           <section class="newsletter">
               <div class="section-title-wrapper">
@@ -163,13 +165,13 @@
                 <p>Zapisz się do naszego newslettera i otrzymuj wiadomości z poradami dotyczącymi tworzenia stron WWW oraz informacjami o nowych kursach, promocjach i więcej.</p>
                 <p>Zero spamu, tylko najprzydatniejsze informacje!</p>
               </div>
-                <div class="newsletter__form">
+                <form class="newsletter__form">
                   <input class="newsletter-name-input" type="text" placeholder="Imię" required></input>
                   <input class="newsletter-email-input" type="email" placeholder="Adres email" required></input>
-                  <button class="newsletter-send-button">Wyślij</button>
-                </div>
-                <a class="newsletter-convert-kit-link" href=""><img class="newsletter-convert-kit-img" src="" alt=""></img></a>
-                <a class="newsletter-privacy-policy" href="">Polityka prywatności</a>
+                  <button class="newsletter-send-button" type="submit">Wyślij</button>
+                </form>
+                <a class="newsletter-convert-kit-link" href="https://convertkit.com/?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic" target="_blank"><img class="newsletter-convert-kit-img" src="https://downloads.intercomcdn.com/i/o/111062/806b67cd9dd0ec9e70b5069e/64e092bd73ed3f476f8c275a45db1790.png" alt="Built with ConvertKit image"></img></a>
+                <a class="newsletter-privacy-policy" href="https://mmcschool.pl/politykaprywatnosci.html" target="_blank">Polityka prywatności</a>
               </div>
             </div>
           </section>
@@ -185,7 +187,30 @@
               </div>
     
               <div class="community__wrapper">
-                <div class="delete-this">Sekcja nasza społeczność</div>
+                <p>Dołącz do społeczności na <a class="mmcLink" href="https://discord.gg/yjRBKgxpBV">Discordzie</a> oraz zasubskrybuj nasz kanał na <a class="mmcLink" href="https://www.youtube.com/channel/UCcaDo69KhpkjtA8iR7agM_g">Youtube</a>!</p>
+                <div class="community__wrapper2col">
+                  <div class="community__col1">
+                    <img class="community-logoimg"src="https://mmcschool.pl/dist/img/discord_black.png" alt="Logo discord">
+                    <h2 class="community-title">Dlaczego warto dołączyć na discorda?</h2>
+                    <ul class="community-ullist">
+                      <li class="community-ul-li">Zyskasz bezpłatną pomoc dotyczącą tworzenia stron internetowych i programowania w JavaScript.</li>
+                      <li class="community-ul-li">Poznasz osoby takie jak Ty! Osoby, które dopiero zaczynają przygodę ze światem front-endu.</li>
+                      <li class="community-ul-li">Będziesz mógł / mogła uczestniczyć w zabawnych quizach sprawdzających wiedzę.</li>
+                      <li class="community-ul-li">Będziesz mógł / mogła pochwalić się swoim kodem i poprosić innych o ocenę.</li>
+                      <li class="community-ul-li">I wiele więcej! :)</li>
+                    </ul>
+                  </div>
+
+                  <div class="community__col2">
+                    <img class="community-logoimg"src="https://mmcschool.pl/dist/img/youtube_black.png" alt="Logo Youtube">
+                    <h2 class="community-title">Dlaczego warto zasubskrybować kanał na Youtube?</h2>
+                    <ul class="community-ullist">
+                      <li class="community-ul-li">Na kanale obejrzysz materiały, które uzupełniają treści kursów.</li>
+                      <li class="community-ul-li">Poznasz triki i ciekawostki ze świata front-endu.</li>
+                      <li class="community-ul-li">Będziesz miał/a wpływ na to, co trafia na kanał! Wystarczy wysłać do nas pomysł na odcinek na <a class="mmcLink" href="#contact">maila</a> lub na Discordzie.</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -245,6 +270,7 @@
           <footer>  
                 <div class="delete-this">FOOTER</div>
           </footer>
+        </div>
         </div>
     <script src="./script.js"></script>
   </body>
