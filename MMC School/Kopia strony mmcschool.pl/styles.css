@@ -105,6 +105,11 @@ body {
   outline: 1px solid tomato;
 }
 
+.bold {
+  font-weight: 700;
+}
+
+
 /* ************************** HEADER ************************** */
 
 .header {
@@ -461,9 +466,52 @@ body {
 
 .moreCourses__wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
 }
+
+.moreCourses__wrapper__text p {
+  padding-bottom: 0.2em;
+}
+
+.moreCourses__wrapper__courses {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+.moreCourses__card {
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 49%;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  padding: 2em;
+}
+
+.moreCourses__card a {
+  text-decoration: none;
+  color: var(--main-color);
+}
+.moreCourses__card h4 {
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+.moreCourses__card p {
+  padding-bottom: 0.2em;
+}
+
+
+
 
 /* **************************  CONTACT ************************** */
 .contact {
@@ -473,8 +521,33 @@ body {
 
 .contact__wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.contact__main__wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__info,
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact__info {
+  width: 35%;
+  border: 1px solid red;
+}
+.contact__form {
+  width: 63%;
+  border: 1px solid hotpink;
 }
 
 /* **************************  FOOTER ************************** */
@@ -486,11 +559,13 @@ footer {
   border: 3px solid tomato;
 }
 
-/* .home,
+.home,
 .future,
 .accordion,
 .opinions,
 .courses,
-.newsletter {
+.newsletter,
+.community,
+.map {
   display: none;
-} */
+}

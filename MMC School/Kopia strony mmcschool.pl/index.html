@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="./styles.css" />
 
     <!-- using Font Awesome -->
-    <!-- <script
+    <script
       src="https://kit.fontawesome.com/3766d2d2c4.js"
       crossorigin="anonymous"
-    ></script> -->
+    ></script>
   </head>
   <body>
     <!-- ========================== HEADER ========================== -->
@@ -234,7 +234,7 @@
 
 
         <!-- ========================== SECTION MORE COURSES ========================== -->
-        <div class="container-fluid">
+        <div class="container-fluid bg-gray">
           <div class="container">
           <section class="moreCourses">
               <div class="section-title-wrapper">
@@ -242,7 +242,23 @@
               </div>
     
               <div class="moreCourses__wrapper">
-                <div class="delete-this">Sekcja pozostałe kursy</div>
+                <div class="moreCourses__wrapper__text">
+                  <p>Niektórych kursów MMC School nie ma na powyższej mapie.</p>
+                  <p>Powód jest prosty – nie trzeba przechodzić ich wszystkich, aby móc zacząć przygodę z freelancingiem czy zostać Junior Front End Developerem.</p>
+                  <p>Można je natomiast zrobić dla rozszerzenia swych kompetencji i bycia bardziej konkurencyjnym na rynku pracy. 🙂</p>
+                </div>
+                <div class="moreCourses__wrapper__courses">
+                <div class="moreCourses__card">
+                  <h4><a href="https://mmcschool.pl/kursy/kurs-bootstrap.html">Kurs Bootstrapa (4 projekty)</a></h4>
+                  <p><span class="bold">Najwcześniej:</span> po ukończeniu Kurs Tworzenia Stron WWW cz. 2.</p>
+                  <p><span class="bold">Optymalnie:</span> po ukończeniu Kurs Tworzenia Stron WWW cz. 4.</p>
+                </div>
+                <div class="moreCourses__card">
+                  <h4><a>Kurs UI/UX Design (kurs jest dopiero w trakcie tworzenia)</a></h4>
+                  <p><span class="bold">Najwcześniej:</span> kurs można rozpocząć w dowolnym momencie.</p>
+                  <p><span class="bold">Optymalnie:</span> po ukończeniu Kurs Tworzenia Stron WWW cz. 3.</p>
+                </div>
+                </div>
               </div>
             </div>
           </section>
@@ -258,7 +274,26 @@
               </div>
     
               <div class="contact__wrapper">
-                <div class="delete-this">Sekcja kontakt</div>
+                <div class="contact__main__wrapper">
+                  <div class="contact__info">
+                    <h3>Napisz do nas!</h3>
+                    <p>Chcesz o coś spytać?</p>
+                    <p>Skorzystaj z poniższych opcji lub formularza kontaktowego.</p>
+                    <p class="contact-link-text"><i class="fa-regular fa-at"></i><a class="mmcLink" href="mailto:kontakt@mmcschool.pl">kontakt@mmcschool.pl</a></p>
+                    <p class="contact-link-text"><i class="fa-brands fa-facebook"></i><a class="mmcLink" href="https://www.facebook.com/MMCSchoolPL">Facebook MMC School</a></p>
+                    <p class="contact-link-text"><i class="fa-brands fa-discord"></i><a class="mmcLink" href="https://discord.gg/yjRBKgxpBV">Discord MMC School</a></p>
+                  </div>
+                  <form class="contact__form">
+                    <input class="contact__form-name" type="text" placeholder="Imię" required></input>
+                    <input class="contact__form-email" type="email" placeholder="Adres mailowy" required></input>
+                    <input class="contact__form-subject" type="text" placeholder="Temat" required></input>
+                    <textarea class="contact__form-content" placeholder="Treść wiadomości" required rows="4"></textarea>
+                    <input class="contact__form-submit" type="submit" value="Wyślij"></input>
+                  </form>
+                </div>
+                <div class="contact__personalData__wrapper">
+                  <p>Wypełnienie formularza oznacza, że podane w nim dane osobowe będą przetwarzane w celu udzielenia odpowiedzi. Jeśli Twoje pytanie będzie odnosić się do naszych usług, w odpowiedzi możemy przedstawić Ci ofertę. <a href="https://mmcschool.pl/politykaprywatnosci.html">Dowiedz się, jak przetwarzamy Twoje dane</a>.</p>
+                </div>
               </div>
             </div>
           </section>
