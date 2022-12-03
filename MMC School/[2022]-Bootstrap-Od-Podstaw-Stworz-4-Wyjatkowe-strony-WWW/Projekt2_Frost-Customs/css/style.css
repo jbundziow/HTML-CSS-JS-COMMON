@@ -197,8 +197,79 @@ footer {
 
 /* aboutus bottom */
 
-.card {
-  background-color: red;
+/* .card {
+  background-color: #0078ff;
   height: 200px;
-  border: 1px solid black;
+} */
+
+.card {
+  height: 200px;
 }
+
+.card-container:nth-child(even) .card {
+  background-color: #112a46;
+}
+
+.card-container:nth-child(odd) .card {
+  background-color: #0078ff;
+}
+
+.card-container .card:hover {
+  background-color: black;
+  transition: background-color 0.3s;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.card .icon-container {
+  width: 40%;
+}
+
+.card .text-container {
+  width: 60%;
+}
+
+/* services */
+
+.services-hero {
+  background-image: url("../img/service/service-hero.jpg");
+  background-position: 0 75%;
+}
+
+.service-hero-box {
+  position: relative;
+  height: 300px;
+  z-index: 0;
+  background-size: cover;
+}
+
+.service-hero-box p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.box-one {
+  background-image: url("../img/service/engine.jpg");
+}
+
+.box-two {
+  background-image: url("../img/service/visual.jpg");
+}
+
+.box-three {
+  background-image: url("../img/service/car-audio.jpg");
+}
+
+.box-four {
+  background-image: url("../img/service/allinone.jpg");
+}
+
+/* projects */
