@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frost Customs - Kontakt</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- using Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/3766d2d2c4.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-icicles text-primary"></i> Fro<span
+            class="text-primary"
+            >st</span
+          >
+          Customs
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link px-lg-3" href="index.html">Home</a>
+            <a class="nav-link px-lg-3" href="aboutus.html">O nas</a>
+            <a class="nav-link px-lg-3" href="services.html">Usługi</a>
+            <a class="nav-link px-lg-3" href="projects.html">Projekty</a>
+            <a class="nav-link px-lg-3 active" href="#">Kontakt</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="top-hero contact-hero">
+        <p class="top-hero-text text-light">Kontakt</p>
+        <div class="hero-shadow"></div>
+      </section>
+      <div class="container py-5">
+        <section class="contact-text col-12">
+          <div class="text-center py-5">
+            <h2 class="display-3">Napisz do nas!</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
+              voluptas!
+            </p>
+          </div>
+        </section>
+        <section class="contact-data">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="contact-details border text-center py-5">
+                <h3 class="display-6 font-weight-bold">DANE KONTAKTOWE</h3>
+                <p class="mb-5">Lorem ipsum dolor sit amet.</p>
+                <p class="font-weight-bold m-0">ADRES</p>
+                <p class="m-0">ul. Długa 10</p>
+                <p>00-000 Warszawa</p>
+                <p class="font-weight-bold m-0">telefon</p>
+                <p>+48 000 000 000</p>
+                <p class="font-weight-bold m-0">e-mail</p>
+                <p>kontakt@forstcustoms.pl</p>
+                <hr />
+                <p class="contact-details-logo mt-3">
+                  <i class="fas fa-icicles text-primary"></i> Fro<span
+                    class="text-primary"
+                    >st</span
+                  >
+                  Customs
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="contact-form border p-3">
+                <h3 class="col-12 display-6 text-center font-weight-bold m-5">
+                  FORMULARZ KONTAKTOWY
+                </h3>
+                <form>
+                  <div class="row text-center">
+                    <div class="col-12 mb-3">
+                      <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                          <div class="mb-3">
+                            <label for="form-name" class="form-label mb-0"
+                              >Imię i nazwisko</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="form-name"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <div class="mb-3">
+                            <label for="form-email" class="form-label mb-0"
+                              >Adres mailowy</label
+                            >
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="form-email"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                          <label for="#which-car"
+                            >Jaki posiadasz samochód?</label
+                          >
+                          <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="which-car"
+                            required
+                          >
+                            <option value="" selected disabled hidden></option>
+                            <option value="1">Ferrari</option>
+                            <option value="2">Porsche</option>
+                            <option value="3">Alfa Romeo</option>
+                            <option value="4">Inny</option>
+                          </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <label for="#subject"
+                            >W jakiej sprawie piszesz?</label
+                          >
+                          <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="subject"
+                            required
+                          >
+                            <option value="" selected disabled hidden></option>
+                            <option value="1">Umówienie się na serwis</option>
+                            <option value="2">Konsultacja</option>
+                            <option value="3">Pytanie techniczne</option>
+                            <option value="4">Wycena</option>
+                            <option value="5">Inna</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label for="form-textarea" class="form-label mb-0"
+                          >Wpisz treść wiadomości</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="form-textarea"
+                          rows="3"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button
+                        class="btn btn-primary px-5 py-3 font-weight-bold mb-2"
+                        type="submit"
+                      >
+                        Wyślij
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="google-map text-center py-5">
+          <h2 class="display-3 mb-5">Mapa dojazdu</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.085619507147!2d16.96881911590164!3d51.1068804477287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc1e92aa39493%3A0x7c232aaf74220262!2sWroc%C5%82awski%20Park%20Technologiczny!5e0!3m2!1spl!2spl!4v1670163416079!5m2!1spl!2spl"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-light">
+      <p class="py-5 mb-0 text-center">
+        &copy; 2022 Copyright
+        <i class="fas fa-icicles text-primary"></i> Fro<span
+          class="text-primary"
+          >st</span
+        >
+        Customs
+      </p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

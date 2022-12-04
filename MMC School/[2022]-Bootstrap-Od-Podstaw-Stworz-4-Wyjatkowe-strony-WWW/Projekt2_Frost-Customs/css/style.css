@@ -11,6 +11,7 @@ html {
 body {
   font-family: "Raleway", sans-serif;
   font-size: 1.6rem;
+  position: relative;
 }
 
 .hero-shadow {
@@ -242,7 +243,13 @@ footer {
   position: relative;
   height: 300px;
   z-index: 0;
-  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  transition: background 0.3s;
+}
+
+.service-hero-box:hover {
+  background-size: 110%;
 }
 
 .service-hero-box p {
@@ -288,4 +295,33 @@ footer {
 .projects .btn {
   font-size: 1.4rem;
   text-transform: uppercase;
+}
+
+/* contact */
+
+.contact-hero {
+  background-image: url("../img/contact/contact-hero.jpg");
+  background-position: center;
+}
+
+.contact-details hr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.contact-details-logo {
+  font-size: 3rem;
+}
+
+.contact-data input,
+.contact-data select,
+.contact-data textarea,
+.contact-data button {
+  font-size: 1.5rem;
+}
+
+.google-map iframe {
+  width: 100%;
+  min-height: 400px;
+  border-radius: 10px;
 }
