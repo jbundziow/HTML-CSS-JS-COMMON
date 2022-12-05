@@ -259,6 +259,67 @@ body {
   font-size: 7rem;
 }
 
+.accordion-btn .fa-solid {
+  margin-right: 15px;
+}
+
+.accordion {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.accordion-box {
+  margin: 5px;
+}
+
+.accordion-btn {
+  padding: 1em;
+  width: 100%;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  text-align: left;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+.accordion-btn:hover,
+.accordion-btn:focus {
+  background-color: rgb(248, 248, 248);
+  outline: none;
+}
+
+.accordion-info {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(216, 216, 216);
+  border-top: none;
+  border-radius: 0px 0px 8px 8px;
+
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.05s ease, opacity 0.5s ease, padding 0.5s ease;
+  overflow: hidden;
+}
+
+.accordion-info-text {
+  padding: 0.5em;
+}
+
+.active-accordion {
+  max-height: 99999px;
+  opacity: 1;
+  padding: 1em;
+}
+
+.active-accordion-btn {
+  border-bottom: none;
+  border-radius: 8px 8px 0px 0px;
+}
+
 /* **************************  OPINIONS ************************** */
 .opinions {
   display: flex;
