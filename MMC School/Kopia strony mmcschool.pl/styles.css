@@ -547,7 +547,7 @@ body {
   display: block;
   width: 3px;
   height: 100%;
-  background-color: #0076e8;
+  background-color: var(--main-color);
 }
 
 .map__timeline ul {
@@ -562,7 +562,7 @@ body {
   width: 50%;
   padding: 2em;
   margin-bottom: 2em;
-  border: 1px solid #0076e8;
+  border: 1px solid var(--main-color);
   border-radius: 7px;
   position: relative;
   line-height: 1.5em;
@@ -585,7 +585,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #0076e8;
+  background-color: var(--main-color);
 }
 
 .map__timeline li:nth-child(odd)::after {
@@ -603,7 +603,7 @@ body {
 }
 
 .map-course-link {
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -618,6 +618,35 @@ body {
 
 .map-li-small-text {
   font-size: 1.4rem;
+}
+
+/* map-li__info */
+
+.map-li__info-icon {
+  position: absolute;
+  font-size: 2rem;
+  top: 5%;
+  right: 2%;
+  color: rgb(47, 47, 47);
+}
+
+.map-li__info-icon:hover + .map-li__info-box {
+  display: block;
+}
+
+.map-li__info-box {
+  display: none;
+  position: absolute;
+  bottom: 105%;
+  right: 0%;
+  font-size: 1.5rem;
+  padding: 1em 2em;
+  border: 1px solid var(--main-color);
+  border-radius: 7px;
+  line-height: 1.5em;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  width: 70%;
 }
 
 /* **************************  MORE COURSES ************************** */
