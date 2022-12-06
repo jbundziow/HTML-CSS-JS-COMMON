@@ -522,10 +522,12 @@ body {
 .map {
   display: flex;
   flex-direction: column;
+  font-size: 2rem;
 }
 
 .map__wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -533,7 +535,7 @@ body {
 .map__timeline {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 .map__timeline::before {
@@ -563,6 +565,7 @@ body {
   border: 1px solid #0076e8;
   border-radius: 7px;
   position: relative;
+  line-height: 1.5em;
 }
 
 .map__timeline li:nth-child(even) {
@@ -591,6 +594,30 @@ body {
 
 .map__timeline li:nth-child(even)::after {
   left: -31px;
+}
+
+.map-beginning-text {
+  font-size: 2rem;
+  align-self: flex-start;
+  margin-bottom: 3em;
+}
+
+.map-course-link {
+  color: rgb(0,0,0);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.map-course-link:hover {
+  color: var(--main-color);
+}
+
+.map-li-medial-text {
+  font-size: 1.8rem;
+}
+
+.map-li-small-text {
+  font-size: 1.4rem;
 }
 
 /* **************************  MORE COURSES ************************** */
