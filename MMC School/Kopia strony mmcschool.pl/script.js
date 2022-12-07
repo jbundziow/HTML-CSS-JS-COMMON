@@ -57,7 +57,71 @@ window.addEventListener('click', clickOutsideAccordionItems)
 
 //COURSES SECTION
 
+const allCourseBtns = document.querySelectorAll('.courses__btn')
+const btnAllCourses = document.querySelector('.courses__btn-all-courses')
+const btnHtmlCss = document.querySelector('.courses__btn-html-and-css')
+const btnJavascript = document.querySelector('.courses__btn-javascript')
+const btnFreeCourses = document.querySelector('.courses__btn-free-courses')
 
-//courses__category-box-html-and-css-section
-//courses__category-box-javascript-section
-//courses__category-box-free-courses-section
+const sectionHtmlCss = document.querySelector('.courses__category-box-html-and-css-section')
+const sectionJavascript = document.querySelector('.courses__category-box-javascript-section')
+const sectionFreeCourses = document.querySelector('.courses__category-box-free-courses-section')
+
+const displayCoursesSection = (name) => {
+    setCoursesButtonAsActive(name)
+    
+    switch (name) {
+        case 'all':
+            sectionHtmlCss.style.display = 'initial';
+            sectionJavascript.style.display = 'initial';
+            sectionFreeCourses.style.display = 'initial';
+            break;
+        case 'htmlcss':
+            sectionHtmlCss.style.display = 'initial';
+            sectionJavascript.style.display = 'none';
+            sectionFreeCourses.style.display = 'none';
+            break;
+        case 'javascript':
+            sectionHtmlCss.style.display = 'none';
+            sectionJavascript.style.display = 'initial';
+            sectionFreeCourses.style.display = 'none';
+            break;
+        case 'freecourses':
+            sectionHtmlCss.style.display = 'none';
+            sectionJavascript.style.display = 'none';
+            sectionFreeCourses.style.display = 'initial';
+            break;
+    
+        default:
+            console.error('An issue in displayCoursesSection().')
+            break;
+    }
+}
+
+const setCoursesButtonAsActive = (name) => {
+    allCourseBtns.forEach(btn => btn.classList.remove('courses__btn-active'))
+
+    switch (name) {
+        case 'all':
+            console.log('all');
+            btnAllCourses.classList.add('courses__btn-active')
+            break;
+        case 'htmlcss':
+            btnHtmlCss.classList.add('courses__btn-active')
+            break;
+        case 'javascript':
+            btnJavascript.classList.add('courses__btn-active')
+            break;
+        case 'freecourses':
+            btnFreeCourses.classList.add('courses__btn-active')
+            break;
+        default:
+            console.error('An issue in setCoursesButtonAsActive().')
+            break;
+    }
+}
+
+btnAllCourses.addEventListener('click', () => {displayCoursesSection('all')})
+btnHtmlCss.addEventListener('click', () => {displayCoursesSection('htmlcss')})
+btnJavascript.addEventListener('click', () => {displayCoursesSection('javascript')})
+btnFreeCourses.addEventListener('click', () => {displayCoursesSection('freecourses')})
