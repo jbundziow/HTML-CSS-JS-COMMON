@@ -391,11 +391,11 @@ body {
 } */
 
 .courses__category-box-title {
-text-transform: uppercase;
-font-weight: 300;
-color: rgb(82, 82, 82);
-margin-top: 1em;
-margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: rgb(82, 82, 82);
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 .courses__elements-container {
@@ -407,9 +407,8 @@ margin-bottom: 0.5em;
 .courses__course {
   width: 25%;
   padding: 0.2em 0.2em 0.7em 0.2em;
-  overflow: hidden;  
+  overflow: hidden;
 }
-
 
 .courses__course-img {
   width: 100%;
@@ -438,10 +437,12 @@ margin-bottom: 0.5em;
 }
 
 .courses__additional-text-box {
-  background-color: red;
-  padding: 2em;
+  /* background-color: red; */
+  /* border: 1px solid black; */
+  padding: 1.1em;
+  border-left: 5px solid var(--main-color);
+  margin: 2em 0;
 }
-
 
 /* **************************  NEWSLETTER ************************** */
 .newsletter {

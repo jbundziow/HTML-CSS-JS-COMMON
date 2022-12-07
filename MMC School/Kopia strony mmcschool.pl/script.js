@@ -53,3 +53,11 @@ const clickOutsideAccordionItems = (e) => {
 
 accordionBtns.forEach(btn => btn.addEventListener('click', openAccordionItems))
 window.addEventListener('click', clickOutsideAccordionItems)
+
+
+//COURSES SECTION
+
+
+//courses__category-box-html-and-css-section
+//courses__category-box-javascript-section
+//courses__category-box-free-courses-section
