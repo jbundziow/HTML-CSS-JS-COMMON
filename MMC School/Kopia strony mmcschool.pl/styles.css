@@ -358,7 +358,7 @@ body {
   font-size: 2rem;
 }
 
-.courses__wrapper p {
+.courses__introduction-text {
   margin-bottom: 1em;
 }
 
@@ -389,6 +389,59 @@ body {
 /* .courses__button-box .btn-special-animation:before {
   background-color: red;
 } */
+
+.courses__category-box-title {
+text-transform: uppercase;
+font-weight: 300;
+color: rgb(82, 82, 82);
+margin-top: 1em;
+margin-bottom: 0.5em;
+}
+
+.courses__elements-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.courses__course {
+  width: 25%;
+  padding: 0.2em 0.2em 0.7em 0.2em;
+  overflow: hidden;  
+}
+
+
+.courses__course-img {
+  width: 100%;
+  border-radius: 7px;
+  transition: transform 0.3s;
+}
+
+.courses__course-img:hover {
+  transform: scale(0.95);
+}
+
+.courses__course-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.courses__course-title {
+  padding-top: 0.5em;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--main-color);
+  text-align: center;
+}
+
+.courses__additional-text-box {
+  background-color: red;
+  padding: 2em;
+}
+
 
 /* **************************  NEWSLETTER ************************** */
 .newsletter {
