@@ -239,6 +239,11 @@ body {
   padding-bottom: 2em;
 }
 
+.future__img {
+  width: 500px;
+  height: 300px;
+}
+
 /* ************************** ACCORDION ************************** */
 .accordion {
   display: flex;
@@ -364,6 +369,9 @@ body {
 
 .courses__button-box {
   padding: 1em 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .courses__button-box button {
@@ -443,6 +451,8 @@ body {
   border-left: 5px solid var(--main-color);
   margin: 2em 0;
 }
+
+
 
 /* **************************  NEWSLETTER ************************** */
 .newsletter {
@@ -964,4 +974,68 @@ footer p {
 *:focus-visible {
   outline: none;
   border-bottom: 2px solid var(--main-color);
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 992px) {
+  .home {
+  background-image: url('https://mmcschool.pl/dist/img/header-small.jpg');
+  }
+
+  .future__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    
+  }
+
+  .future__text {
+    padding-left: 0;
+  }
+
+  .future__img {
+    width: 80%;
+    height: auto;
+  }
+
+  .courses__course {
+    width: 33%;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .courses__button-box {
+    justify-content: center;
+  }
+.courses__btn {
+  width: 100%;
+  margin-bottom: 0.3em;
+}
+
+.courses__course {
+  width: 50%;
+}
+
+}
+
+@media (max-width: 576px) {
+
+.home__header,
+.home__brand {
+  font-size: 2rem;
+}
+
+.opinions__wrapper > div > a {
+  font-size: 1.5rem;
+}
+
+.courses__course {
+  width: 100%;
+}
+
 }
