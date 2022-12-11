@@ -11,6 +11,7 @@
 /* FONT-SIZE */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 50px; /* position fixed header */
   font-size: 62.5%; /* after it: 1rem=10px, 2rem=20px, 3rem=30px */
   font-family: "Montserrat", sans-serif;
 }
