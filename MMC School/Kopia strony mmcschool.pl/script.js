@@ -17,7 +17,6 @@ function openAccordionItems () {
     closeAccordionItems() //all
     accordionInfo.classList.add('active-accordion')
     this.classList.add('active-accordion-btn')
-    console.log(this);
 
     //change '+' icon into '-'
     const icon = this.querySelector('.fa-solid');
@@ -107,7 +106,6 @@ const setCoursesButtonAsActive = (name) => {
 
     switch (name) {
         case 'all':
-            console.log('all');
             btnAllCourses.classList.add('courses__btn-active')
             break;
         case 'htmlcss':
