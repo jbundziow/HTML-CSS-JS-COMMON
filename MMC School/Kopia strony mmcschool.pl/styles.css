@@ -452,8 +452,6 @@ body {
   margin: 2em 0;
 }
 
-
-
 /* **************************  NEWSLETTER ************************** */
 .newsletter {
   display: flex;
@@ -603,7 +601,7 @@ body {
 }
 
 .community-logoimg {
-  height: 100px;
+  max-height: 100px;
 }
 
 .community-title {
@@ -921,6 +919,13 @@ body {
 .contact__form .btn-special-animation:before {
   background-color: #0b5ca8;
 }
+.contact-box {
+  width: 100%;
+  position: relative;
+}
+.contact-label {
+  position: absolute;
+}
 
 /* contact__personalData styles */
 
@@ -976,20 +981,30 @@ footer p {
   border-bottom: 2px solid var(--main-color);
 }
 
-
-
 /* MEDIA QUERIES */
+@media (max-width: 1180px) {
+  .contact__main__wrapper {
+    flex-direction: column;
+  }
 
+  .contact__info {
+    width: 100%;
+  }
+
+  .contact__form {
+    padding-top: 1em;
+    width: 100%;
+  }
+}
 @media (max-width: 992px) {
   .home {
-  background-image: url('https://mmcschool.pl/dist/img/header-small.jpg');
+    background-image: url("https://mmcschool.pl/dist/img/header-small.jpg");
   }
 
   .future__wrapper {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    
   }
 
   .future__text {
@@ -1005,37 +1020,104 @@ footer p {
     width: 33%;
   }
 
-
+  .community__col1,
+  .community__col2 {
+    width: 35%;
+  }
 }
 
 @media (max-width: 768px) {
   .courses__button-box {
     justify-content: center;
   }
-.courses__btn {
-  width: 100%;
-  margin-bottom: 0.3em;
-}
+  .courses__btn {
+    width: 100%;
+    margin-bottom: 0.3em;
+  }
 
-.courses__course {
-  width: 50%;
-}
+  .courses__course {
+    width: 50%;
+  }
 
+  .newsletter__form {
+    flex-direction: column;
+  }
+
+  .newsletter-name-input,
+  .newsletter-email-input,
+  .newsletter-send-button {
+    margin: 0.4em 1em;
+    width: 100%;
+  }
+
+  .community__wrapper2col {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .community__col1,
+  .community__col2 {
+    width: 100%;
+    padding-left: 2em;
+  }
+
+  .moreCourses__wrapper__courses {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .moreCourses__card {
+    width: 100%;
+    margin-bottom: 1em;
+  }
 }
 
 @media (max-width: 576px) {
+  .home__header,
+  .home__brand {
+    font-size: 2rem;
+  }
 
-.home__header,
-.home__brand {
-  font-size: 2rem;
-}
+  .opinions__wrapper > div > a {
+    font-size: 1.5rem;
+  }
 
-.opinions__wrapper > div > a {
-  font-size: 1.5rem;
-}
+  .courses__course {
+    width: 100%;
+    padding: 0.2em 1em 0.7em 1em;
+  }
 
-.courses__course {
-  width: 100%;
-}
+  .community-logoimg {
+    width: 70%;
+    height: auto;
+  }
 
+  .community-title {
+    margin-left: -1.5em;
+    font-size: 2rem;
+  }
+
+  .map__timeline ul {
+    margin: 0;
+  }
+
+  .map__timeline li {
+    width: 100%;
+  }
+
+  .map__timeline li:nth-child(odd) {
+    align-self: center;
+    transform: translateX(0px);
+  }
+  .map__timeline li:nth-child(even) {
+    align-self: center;
+    transform: translateX(0px);
+  }
+  .map__timeline::before {
+    display: none;
+  }
+  .map__timeline li::after {
+    display: none;
+  }
 }

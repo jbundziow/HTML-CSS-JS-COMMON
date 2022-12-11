@@ -920,30 +920,52 @@
                 <i class="contact__info-bg fa-regular fa-envelope"></i>
               </div>
               <form class="contact__form">
-                <input
-                  class="contact__form-name"
-                  type="text"
-                  placeholder="Imię"
-                  required
-                />
-                <input
-                  class="contact__form-email"
-                  type="email"
-                  placeholder="Adres mailowy"
-                  required
-                />
-                <input
-                  class="contact__form-subject"
-                  type="text"
-                  placeholder="Temat"
-                  required
-                />
-                <textarea
-                  class="contact__form-content"
-                  placeholder="Treść wiadomości"
-                  required
-                  rows="4"
-                ></textarea>
+                <div class="contact-box">
+                  <label for="#contact__form-name" class="contact-label"
+                    >Imię</label
+                  >
+                  <input
+                    id="contact__form-name"
+                    type="text"
+                    placeholder="Imię"
+                    required
+                  />
+                </div>
+                <div class="contact-box">
+                  <label for="#contact__form-email" class="contact-label"
+                    >Adres mailowy</label
+                  >
+
+                  <input
+                    id="contact__form-email"
+                    type="email"
+                    placeholder="Adres mailowy"
+                    required
+                  />
+                </div>
+                <div class="contact-box">
+                  <label for="#contact__form-subject" class="contact-label"
+                    >Temat</label
+                  >
+
+                  <input
+                    id="contact__form-subject"
+                    type="text"
+                    placeholder="Temat"
+                    required
+                  />
+                </div>
+                <div class="contact-box">
+                  <label for="#contact__form-content" class="contact-label"
+                    >Treść wiadomości</label
+                  >
+                  <textarea
+                    id="contact__form-content"
+                    placeholder="Treść wiadomości"
+                    required
+                    rows="4"
+                  ></textarea>
+                </div>
                 <button
                   class="contact__form-submit-btn btn-special-animation"
                   type="submit"
