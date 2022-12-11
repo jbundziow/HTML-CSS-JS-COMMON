@@ -1166,4 +1166,11 @@ footer p {
   .map__timeline li::after {
     display: none;
   }
+
+  .newsletter-bg-square-big {
+    right: 10px;
+  }
+  .newsletter-bg-square-small {
+    right: 330px;
+  }
 }
