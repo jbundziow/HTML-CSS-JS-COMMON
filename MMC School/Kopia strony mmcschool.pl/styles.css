@@ -925,6 +925,19 @@ body {
 }
 .contact-label {
   position: absolute;
+  display: block;
+  background-color: #fff;
+  color: rgb(117, 117, 117);
+  font-size: 2rem;
+  top: 8px;
+  left: 8px;
+  padding: 0 0.2em;
+  transition: all 0.3s;
+}
+
+.contact-label-active {
+  top: -16px;
+  left: 20px;
 }
 
 /* contact__personalData styles */
@@ -954,6 +967,7 @@ footer {
 footer p {
   font-size: 2rem;
   padding: 0.5em 0;
+  text-align: center;
 }
 
 /* misc */

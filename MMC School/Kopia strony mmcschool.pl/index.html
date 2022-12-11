@@ -925,9 +925,9 @@
                     >Imię</label
                   >
                   <input
+                    class="contact__form"
                     id="contact__form-name"
                     type="text"
-                    placeholder="Imię"
                     required
                   />
                 </div>
@@ -937,9 +937,9 @@
                   >
 
                   <input
+                    class="contact__form"
                     id="contact__form-email"
                     type="email"
-                    placeholder="Adres mailowy"
                     required
                   />
                 </div>
@@ -949,19 +949,21 @@
                   >
 
                   <input
+                    class="contact__form"
                     id="contact__form-subject"
                     type="text"
-                    placeholder="Temat"
                     required
                   />
                 </div>
                 <div class="contact-box">
-                  <label for="#contact__form-content" class="contact-label"
+                  <label
+                    for="#contact__form-content"
+                    class="contact-label contact-label-active"
                     >Treść wiadomości</label
                   >
                   <textarea
+                    class="contact__form"
                     id="contact__form-content"
-                    placeholder="Treść wiadomości"
                     required
                     rows="4"
                   ></textarea>

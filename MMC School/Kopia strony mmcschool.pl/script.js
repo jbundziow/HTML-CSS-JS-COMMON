@@ -1,10 +1,6 @@
 'use strict'
 
 
-//TODO: newsletter - onclick action - change background to green and display text "Sprawdź maila i potwierdź subskrypcję! 🙂"
-
-
-
 // ACCORDION
 
 const accordionBtns = document.querySelectorAll('.accordion-btn')
@@ -53,6 +49,14 @@ const clickOutsideAccordionItems = (e) => {
 
 accordionBtns.forEach(btn => btn.addEventListener('click', openAccordionItems))
 window.addEventListener('click', clickOutsideAccordionItems)
+
+
+
+
+
+
+
+
 
 
 //COURSES SECTION
@@ -125,3 +129,49 @@ btnAllCourses.addEventListener('click', () => {displayCoursesSection('all')})
 btnHtmlCss.addEventListener('click', () => {displayCoursesSection('htmlcss')})
 btnJavascript.addEventListener('click', () => {displayCoursesSection('javascript')})
 btnFreeCourses.addEventListener('click', () => {displayCoursesSection('freecourses')})
+
+
+
+
+
+
+
+// CONTACT FORM - animation for inputs
+
+const changeAllLabelsIntoPlaceholders = () => {
+    const allLabels = document.querySelectorAll('.contact-label')
+    allLabels.forEach(label => {
+    if (label.nextElementSibling.value === '') {
+        label.classList.remove('contact-label-active')
+        label.nextElementSibling.style.borderBottom = 'none'
+    }
+})
+}
+
+//CLICK ACTION
+window.addEventListener('click', (e) => {
+    changeAllLabelsIntoPlaceholders()
+
+    if (e.target.classList.contains('contact-label')) {
+        e.target.classList.add('contact-label-active')
+        e.target.nextElementSibling.focus()
+        e.target.nextElementSibling.style.borderBottom = '2px solid var(--main-color)'
+    }
+    else if (e.target.classList.contains('contact__form')) {
+        e.target.previousElementSibling.classList.add('contact-label-active');
+        e.target.style.borderBottom = '2px solid var(--main-color)'
+    }
+});
+
+//FOCUS ACTION (WHILE USER NAVIGATE ON WEBSITE USING 'TAB' BUTTON)
+const allInputs = document.querySelectorAll('.contact__form');
+    allInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            changeAllLabelsIntoPlaceholders()
+            if (input === document.activeElement) {
+                input.previousElementSibling.classList.add('contact-label-active');
+                input.style.borderBottom = '2px solid var(--main-color)'
+            }
+        })
+    })
+
