@@ -168,6 +168,20 @@ body {
   color: var(--main-color);
 }
 
+.burger {
+  display: none;
+  font-size: 4rem;
+  outline: none;
+  background-color: transparent;
+  padding: 0.5em;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-hide {
+  transform: translateX(200%);
+}
+
 /* ************************** HOME ************************** */
 
 .home__block-before {
@@ -1042,7 +1056,38 @@ footer p {
     width: 100%;
   }
 }
+@media (min-width: 992px) {
+  .burger-hide {
+    transform: translateX(0);
+  }
+}
 @media (max-width: 992px) {
+  .burger {
+    display: block;
+  }
+
+  .header__list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 70px;
+    left: 0;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    transition: transform 0.5s;
+  }
+
+  .header__list-item {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    border-bottom: 1px solid #d8d8d8;
+  }
+
   .home {
     background-image: url("https://mmcschool.pl/dist/img/header-small.jpg");
   }

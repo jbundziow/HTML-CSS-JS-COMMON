@@ -1,5 +1,18 @@
 'use strict'
 
+//HAMBURGER HEADER MENU
+
+const menu = document.querySelector('.header__list');
+const btnExpandMenu = document.querySelector('.burger');
+const menuLinks = document.querySelectorAll('.header__list-item > a')
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {menu.classList.add('burger-hide')})
+})
+
+btnExpandMenu.addEventListener('click', function () {menu.classList.toggle('burger-hide')});
+
+
 
 // ACCORDION
 
