@@ -98,12 +98,15 @@ body {
   transform: scaleY(1);
 }
 
+.mmcLink:focus-visible {
+  background-color: var(--main-color);
+}
+
 .bold {
   font-weight: 700;
 }
 
 .btn-special-animation:before {
-  border-radius: 7px;
   display: block;
   content: "";
   position: absolute;
@@ -115,6 +118,7 @@ body {
   transform-origin: right;
   transition: transform 0.3s;
   z-index: -1;
+  background-color: red;
 }
 .btn-special-animation:hover:before {
   transform-origin: left;
@@ -391,13 +395,20 @@ body {
   cursor: pointer;
 }
 
+.courses__button-box button:focus-visible {
+  border: 2px solid var(--main-color);
+}
+
 .courses__button-box .btn-special-animation:before {
   background-color: rgb(205, 205, 205);
 }
-
-/* .courses__button-box .btn-special-animation:before {
-  background-color: red;
-} */
+.courses__button-box button.courses__btn-active {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.courses__button-box .courses__btn-active.btn-special-animation:before {
+  background-color: #0b5ca8;
+}
 
 .courses__category-box-title {
   text-transform: uppercase;
@@ -534,6 +545,16 @@ body {
 .newsletter-privacy-policy {
   text-decoration: none;
   color: rgb(209, 206, 206);
+}
+
+.newsletter-name-input:focus-visible,
+.newsletter-email-input:focus-visible {
+  border: 2px solid #000;
+}
+.newsletter-send-button:focus-visible,
+.newsletter-convert-kit-link:focus-visible,
+.newsletter-privacy-policy:focus-visible {
+  border: 2px solid #fff;
 }
 
 .newsletter-bg {
@@ -885,6 +906,11 @@ body {
   color: black;
 }
 
+.contact-link-text > .mmcLink:focus-visible {
+  background-color: #fff;
+  color: black;
+}
+
 /* contact__form styles */
 
 .contact__form {
@@ -920,6 +946,11 @@ body {
 .contact__form .btn-special-animation:before {
   background-color: #0b5ca8;
 }
+
+.contact__form-submit-btn:focus-visible {
+  border: 2px solid black;
+}
+
 .contact-box {
   width: 100%;
   position: relative;

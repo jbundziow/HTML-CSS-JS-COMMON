@@ -123,6 +123,8 @@ const setCoursesButtonAsActive = (name) => {
     }
 }
 
+
+
 btnAllCourses.addEventListener('click', () => {displayCoursesSection('all')})
 btnHtmlCss.addEventListener('click', () => {displayCoursesSection('htmlcss')})
 btnJavascript.addEventListener('click', () => {displayCoursesSection('javascript')})
