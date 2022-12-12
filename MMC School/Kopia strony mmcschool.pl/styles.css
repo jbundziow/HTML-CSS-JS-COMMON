@@ -290,13 +290,7 @@ body {
   align-items: center;
 }
 
-/* TODO: delete this */
-.delete-this {
-  height: 400px;
-  width: 80%;
-  background-color: rgb(188, 183, 183);
-  font-size: 7rem;
-}
+
 
 .accordion-btn .fa-solid {
   margin-right: 15px;
@@ -486,8 +480,6 @@ body {
 }
 
 .courses__additional-text-box {
-  /* background-color: red; */
-  /* border: 1px solid black; */
   padding: 1.1em;
   border-left: 5px solid var(--main-color);
   margin: 2em 0;
@@ -704,7 +696,6 @@ body {
 }
 
 .map__timeline li {
-  /* display: flex; */
   width: 50%;
   padding: 2em;
   margin-bottom: 2em;
@@ -1031,21 +1022,7 @@ footer p {
   text-align: center;
 }
 
-/* misc */
 
-/* .home,
-.future,
-.accordion,
-.opinions,
-.courses,
-.newsletter,
-.community,
-.map,
-.moreCourses {
-  display: none;
-} */
-
-/* TODO: FOCUS ON ELEMENTS */
 
 *:focus:not(:focus-visible) {
   outline: none;

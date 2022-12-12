@@ -32,9 +32,6 @@ const changeBurgerIcon = () => {
 const menuItems = document.querySelectorAll('.header__list-item a')
 const scrollSpySections = document.querySelectorAll('section')
 
-console.log(menuItems);
-console.log(scrollSpySections);
-
 
 const handleScrollSpy = () => {
     if(document.body.classList.contains('main-page')) {
@@ -113,11 +110,6 @@ window.addEventListener('click', clickOutsideAccordionItems)
 
 
 
-
-
-
-
-
 //COURSES SECTION
 
 const allCourseBtns = document.querySelectorAll('.courses__btn')
@@ -189,8 +181,6 @@ btnAllCourses.addEventListener('click', () => {displayCoursesSection('all')})
 btnHtmlCss.addEventListener('click', () => {displayCoursesSection('htmlcss')})
 btnJavascript.addEventListener('click', () => {displayCoursesSection('javascript')})
 btnFreeCourses.addEventListener('click', () => {displayCoursesSection('freecourses')})
-
-
 
 
 
