@@ -7,8 +7,6 @@ const btnExpandMenu = document.querySelector('.burger');
 const menuLinks = document.querySelectorAll('.header__list-item > a')
 const btnBars = document.querySelector('.burger .fa-bars')
 const btnTimes = document.querySelector('.burger .fa-times')
-console.log(btnBars);
-console.log(btnTimes);
 
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {menu.classList.add('burger-hide'); changeBurgerIcon();})
@@ -28,6 +26,40 @@ const changeBurgerIcon = () => {
         btnBars.classList.add('burger-button-hide')
     }
 }
+
+
+//SCROLLSPY
+const menuItems = document.querySelectorAll('.header__list-item a')
+const scrollSpySections = document.querySelectorAll('section')
+
+console.log(menuItems);
+console.log(scrollSpySections);
+
+
+const handleScrollSpy = () => {
+    if(document.body.classList.contains('main-page')) {
+        const sections = []
+
+        scrollSpySections.forEach(section => {
+
+            if(window.scrollY <= section.offsetTop + section.offsetHeight -103) {
+                sections.push(section)
+                const activeSection = document.querySelector(`[href*="${sections[0].id}"]`)
+                
+                menuItems.forEach(item => item.classList.remove('header__list-item-active'))
+                activeSection.classList.add('header__list-item-active')
+            }
+
+            if ( window.innerHeight + window.scrollY >= document.body.offsetHeight - -300) {
+                const lastSection = document.querySelector('.header__list-item a:last-of-type')
+                menuItems.forEach(item => item.classList.remove('header__list-item-active'))
+                lastSection.classList.add('header__list-item-active')
+            }
+
+        })
+    }
+}
+window.addEventListener('scroll', handleScrollSpy)
 
 // ACCORDION
 

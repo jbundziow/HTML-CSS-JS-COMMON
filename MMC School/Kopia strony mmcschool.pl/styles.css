@@ -157,6 +157,8 @@ body {
   list-style-type: none;
 }
 
+
+
 .header__list-item {
   padding: 1em;
 }
@@ -164,12 +166,17 @@ body {
 .header__list-item > a {
   text-decoration: none;
   text-transform: uppercase;
-  color: black;
+  color: black;  
   transition: color 0.3s;
 }
 
 .header__list-item > a:hover {
   color: var(--main-color);
+}
+
+.header__list-item-active {
+ color: var(--main-color) !important;
+ text-shadow: 0px 0px 30px var(--main-color);
 }
 
 .burger {
