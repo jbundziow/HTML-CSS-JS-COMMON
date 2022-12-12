@@ -182,6 +182,9 @@ body {
   transform: translateX(200%);
 }
 
+.burger-button-hide {
+  display: none !important;
+}
 /* ************************** HOME ************************** */
 
 .home__block-before {

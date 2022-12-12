@@ -5,14 +5,29 @@
 const menu = document.querySelector('.header__list');
 const btnExpandMenu = document.querySelector('.burger');
 const menuLinks = document.querySelectorAll('.header__list-item > a')
+const btnBars = document.querySelector('.burger .fa-bars')
+const btnTimes = document.querySelector('.burger .fa-times')
+console.log(btnBars);
+console.log(btnTimes);
 
 menuLinks.forEach(link => {
-    link.addEventListener('click', () => {menu.classList.add('burger-hide')})
+    link.addEventListener('click', () => {menu.classList.add('burger-hide'); changeBurgerIcon();})
 })
 
-btnExpandMenu.addEventListener('click', function () {menu.classList.toggle('burger-hide')});
+btnExpandMenu.addEventListener('click', function () {menu.classList.toggle('burger-hide'); changeBurgerIcon();});
 
+const changeBurgerIcon = () => {
+    btnBars.classList.remove('burger-button-hide')
+    btnTimes.classList.remove('burger-button-hide')
 
+    if (menu.classList.contains('burger-hide')) {
+        btnTimes.classList.add('burger-button-hide')
+    }
+    else {
+        btnBars.style.rota
+        btnBars.classList.add('burger-button-hide')
+    }
+}
 
 // ACCORDION
 
