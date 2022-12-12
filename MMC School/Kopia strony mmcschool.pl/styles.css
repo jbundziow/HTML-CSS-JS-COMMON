@@ -147,6 +147,10 @@ body {
   justify-content: space-between;
 }
 
+.header__logo img {
+  width: 100%;
+}
+
 .header__list {
   display: flex;
   flex-direction: row;
@@ -174,6 +178,7 @@ body {
   outline: none;
   background-color: transparent;
   padding: 0.5em;
+  margin-right: -0.5em;
   border: none;
   cursor: pointer;
 }
@@ -587,7 +592,7 @@ body {
   width: 300px;
   height: 300px;
   rotate: 10deg;
-  border: 30px solid #4580b8;
+  border: 30px solid #147ddf;
   border-radius: 10px;
   z-index: 0;
 }
@@ -598,7 +603,7 @@ body {
   width: 150px;
   height: 150px;
   rotate: 10deg;
-  border: 30px solid #4580b8;
+  border: 30px solid #147ddf;
   border-radius: 10px;
   z-index: 0;
 }
@@ -878,7 +883,7 @@ body {
 }
 
 .contact__info-bg {
-  color: #4580b8;
+  color: #147ddf;
   position: absolute;
   top: 50%;
   left: 50%;
