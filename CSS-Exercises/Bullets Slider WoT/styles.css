@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+/* NORMALIZE CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+/* FONT-SIZE */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; /* after it: 1rem=10px, 2rem=20px, 3rem=30px */
+
+}
+
+
+body {
+	font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(60,60,60);
+  font-family: 'Montserrat', sans-serif;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+*:focus-visible {
+  outline: 1px solid tomato;
+}
+
+
+.wrapper {
+  display: flex;
+  max-width: 951px;
+  max-height: 446px;
+  background-color: rgb(233,233,233);
+  background: url("https://content-wg.gcdn.co/locdoc/shells/img/bg_1.d10e79.png") no-repeat center 0
+}
+
+.card {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 446px;
+}
+
+
+.card__standard-bullet {
+  background: url("https://content-wg.gcdn.co/locdoc/shells/img/ammo_1.8f4cbd.png") no-repeat center;
+
+
+}
+
+.card__alternative-bullet {
+  background: url("https://content-wg.gcdn.co/locdoc/shells/img/ammo_1.8f4cbd.png") no-repeat center;
+
+}
+
+.card__tactic-bullet {
+  background: url("https://content-wg.gcdn.co/locdoc/shells/img/ammo_1.8f4cbd.png") no-repeat center;
+
+}
