@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem";
+import RenderExpenses from "./components/RenderExpenses";
 
 function App() {
 
@@ -35,10 +35,8 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <p>This is also visible!</p>
-      <ExpenseItem title={expensesArr[0].title} amount={expensesArr[0].amount} date={expensesArr[0].date}></ExpenseItem>
-      <ExpenseItem title={expensesArr[1].title} amount={expensesArr[1].amount} date={expensesArr[1].date}></ExpenseItem>
-      <ExpenseItem title={expensesArr[2].title} amount={expensesArr[2].amount} date={expensesArr[2].date}></ExpenseItem>
-      <ExpenseItem title={expensesArr[3].title} amount={expensesArr[3].amount} date={expensesArr[3].date}></ExpenseItem>
+      <RenderExpenses data={expensesArr}/>
+
     </div>
   );
 }
