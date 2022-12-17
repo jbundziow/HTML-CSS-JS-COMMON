@@ -1,4 +1,4 @@
-import RenderExpenses from "./components/RenderExpenses";
+import RenderExpenses from "./components/Expenses/RenderExpenses";
 
 function App() {
 
