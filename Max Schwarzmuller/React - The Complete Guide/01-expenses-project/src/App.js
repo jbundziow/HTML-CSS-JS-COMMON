@@ -1,4 +1,5 @@
 import RenderExpenses from "./components/Expenses/RenderExpenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
 
@@ -33,8 +34,7 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible!</p>
+      <NewExpense />
       <RenderExpenses data={expensesArr}/>
 
     </div>
