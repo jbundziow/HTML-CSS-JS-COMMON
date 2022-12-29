@@ -1,3 +1,4 @@
+import ExpensesFilter from "./components/Expenses/ExpensesFilter";
 import RenderExpenses from "./components/Expenses/RenderExpenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
