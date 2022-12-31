@@ -24,3 +24,8 @@
 .new-expense__actions {
   text-align: right;
 }
+
+.new-expense-actions__close-btn {
+  background-color: rgb(169, 31, 7) !important;
+  border: 1px solid white !important;
+}
