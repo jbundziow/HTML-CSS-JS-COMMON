@@ -5,12 +5,16 @@ const users = [
 ]
 
 module.exports = {
-    showName(id) {
-        const result = users.map(user => user.id === id);
+    showAllUsers() {
+        const usersNames = users.map(user => user.name);
+        console.log('\nNasi użytkownicy to:');
+        usersNames.forEach(name => console.log(name))
+    },
+
+    showUserObj(id) {
+        const result = users.filter(user => user.id === id);
+        console.log(`\nUżytkownik o id${id} to:`);
         console.log(result);
     },
-    showID(name) {
-        
-    },
-    //length of users
+    usersLength: users.length
 }
