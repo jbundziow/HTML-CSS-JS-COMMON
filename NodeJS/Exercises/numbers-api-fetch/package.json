@@ -12,6 +12,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "node-fetch": "^2.6.11",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
   }
 }
