@@ -1,12 +1,8 @@
 const fetch = require('node-fetch');
 
 //EXERCISE 2
-//check 404 etc.
-//trivia, math, year
-//http://numbersapi.com/${number}/${type}?json'
-
-
-
+//EXERCISE 1 - show in console trivia, math or year
+//just type as 'node app2.js 2007 math'
 let year;
 year = process.argv[2];
 if (year === '' || isNaN(year)) {
@@ -15,8 +11,15 @@ if (year === '' || isNaN(year)) {
 
 let type;
 type = process.argv[3];
-if (type !== 'trivia' || type !== 'math' || type !== 'year') {
+if (type !== 'trivia' && type !== 'math' && type !== 'year') {
     throw Error('Entered type is uncorrect. Type one of these: trivia, math, year.')
 }
-// console.log(type);
-console.log('koniec')
+
+fetch(`http://numbersapi.com/${year}/${type}?json`)
+.then (res => {
+    console.log('status: ', res.status);
+    console.log('statusText: ', res.statusText);
+    return res.json()
+})
+.then(res => console.log(res.text))
+.catch(err => console.log(err));
