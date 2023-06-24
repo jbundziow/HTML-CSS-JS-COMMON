@@ -57,10 +57,23 @@ function gameRoutes(app) {
         res.end();
     })
 
+
+    app.get('/help/:type', (req,res) => {
+        if (req.params.type === 'half') {
+
+        }
+        else if (req.params.type === 'friend') {
+            const showTrueAnswer = Math.random() < 0.7; //70% chance to answer
+            let message;
+            showTrueAnswer ? message=`Wydaje mi się, że poprawna odpowiedź to ${questions[correctAnswers].answers[questions[correctAnswers].correctAnswer]}`
+        }
+        else if (req.params.type === 'crowd') {
+        }
+})
+
+
+
 }
 
-//help friend
-//help half
-//help crowd
 
 module.exports = gameRoutes;

@@ -43,3 +43,21 @@ h2 {
 .game-lost h2 {
   color: tomato;
 }
+
+.help-box p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.help-btn {
+  font-size: 1.4rem;
+  background-color: goldenrod;
+}
+.help-btn:hover {
+  cursor: pointer;
+  background-color: gold;
+}
+.help-btn:disabled {
+  background-color: goldenrod;
+  cursor: not-allowed;
+}
