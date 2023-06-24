@@ -1,0 +1,45 @@
+body {
+  background-color: black;
+  color: white;
+  height: 60vh;
+  font-size: 3rem;
+}
+
+button {
+  font-size: 2rem;
+  padding: 0.5em;
+}
+
+.question,
+h1,
+h2 {
+  text-align: center;
+}
+.question-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.answers-box {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.game-won,
+.game-lost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.game-won h2 {
+  color: green;
+}
+.game-lost h2 {
+  color: tomato;
+}

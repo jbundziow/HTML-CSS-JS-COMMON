@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koderzy Game</title>
+    <link rel="stylesheet" href="./styles.css"
+  </head>
+  <body>
+    <h1>KODERZY GAME</h1>
+
+    <div class="game-won">
+      <h2>Wygrałeś grę! Gratulacje!</h2>
+      <button class="restart-btn">Rozpocznij od nowa</button>
+    </div>
+
+    <div class="game-lost">
+      <h2>Niestety, przegrałeś grę!</h2>
+      <button class="restart-btn">Rozpocznij od nowa</button>
+    </div>
+
+    <div class="question-box">
+      <p class="question"></p>
+      <div class="answers-box">
+        <button class="answer" data-ans="0"></button>
+        <button class="answer" data-ans="1"></button>
+        <button class="answer" data-ans="2"></button>
+        <button class="answer" data-ans="3"></button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
