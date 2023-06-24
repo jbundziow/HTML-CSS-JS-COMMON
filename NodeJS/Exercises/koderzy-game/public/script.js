@@ -21,6 +21,7 @@ fetch('/question', {
         question.innerText = data.question;
         answers.forEach( (answer, i) => {
        answer.innerText = data.answers[i];
+       answer.removeAttribute('disabled') //remove 'half on half' effect if needed
     })
     }
     else if (data.winner === true) {
@@ -52,6 +53,10 @@ const handleRestartGameBtn = () => {
         gameWonBox.style.display = 'none';
         gameLostBox.style.display = 'none';
         questionBox.style.display = 'flex';
+
+        halfOnHalfBtn.removeAttribute('disabled');
+        callFriendBtn.removeAttribute('disabled');
+        askCrowdBtn.removeAttribute('disabled');
     })
 }
 
@@ -77,7 +82,29 @@ const handleHelp = (type) => {
 
     fetch(`help/${urlType}`)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        if(type === 0) {
+            answers.forEach(ans => {
+                if (data.answersToRemove.includes(Number(ans.dataset.ans))) {
+                    ans.setAttribute('disabled','true')
+                }
+                halfOnHalfBtn.setAttribute('disabled','true');
+            })
+        }
+        else if (type === 1) {
+            alert(data.alertText);
+            callFriendBtn.setAttribute('disabled','true');
+        }
+        else if (type === 2) {
+            alert(`Wyniki ankiety wśród publiczności:
+            A. ${data.availableAnswers[0]} --> ${data.chart[0]}%
+            B. ${data.availableAnswers[1]} --> ${data.chart[1]}%
+            C. ${data.availableAnswers[2]} --> ${data.chart[2]}%
+            D. ${data.availableAnswers[3]} --> ${data.chart[3]}%
+            `)
+            askCrowdBtn.setAttribute('disabled','true');
+        }
+    })
 }
 
 
