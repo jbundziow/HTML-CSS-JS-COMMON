@@ -6,11 +6,12 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    ul
-      +link('/', 'Homepage')
-      +link('/news', 'News')
-      +link('/quiz', 'Quiz')
-      +link('/admin', 'Admin')
+    nav
+      ul
+        +link('/', 'Homepage')
+        +link('/news', 'News')
+        +link('/quiz', 'Quiz')
+        +link('/admin', 'Admin')
     block content
 
 

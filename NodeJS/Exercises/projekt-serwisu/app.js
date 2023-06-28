@@ -1,4 +1,6 @@
 const createError = require('http-errors');
+const cookieSession = require('cookie-session')
+const config = require('./config')
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -11,6 +13,14 @@ const adminRouter = require('./routes/admin');
 
 const app = express();
 
+app.use(cookieSession({
+  name: 'session',
+  keys: config.keySession,
+
+  // Cookie Options
+  maxAge: config.maxAgeSession
+}))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -20,6 +30,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+  res.locals.path = req.path;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/news', newsRouter);
