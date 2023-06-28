@@ -1,7 +1,18 @@
+include mixins/li-link.pug
+
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    ul
+      +link('/', 'Homepage')
+      +link('/news', 'News')
+      +link('/quiz', 'Quiz')
+      +link('/admin', 'Admin')
     block content
+
+
+
+
