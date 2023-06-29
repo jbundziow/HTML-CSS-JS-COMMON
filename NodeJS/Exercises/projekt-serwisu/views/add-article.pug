@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Add the article:
+  form(method='post')
+    br
+    p
+    label title: 
+    input(type='text' name='title')
+    p
+    label description: 
+    input(type='password' name='description')
+    p
+    input(type='submit' value='Add article')

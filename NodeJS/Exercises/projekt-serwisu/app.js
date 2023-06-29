@@ -11,6 +11,7 @@ const newsRouter = require('./routes/news');
 const quizRouter = require('./routes/quiz');
 const adminRouter = require('./routes/admin');
 
+
 const app = express();
 
 app.use(cookieSession({
@@ -19,7 +20,8 @@ app.use(cookieSession({
 
   // Cookie Options
   maxAge: config.maxAgeSession
-}))
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
