@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(method='post')
+    input(type='text' name='filterText')
+    input(type='submit' value='Search')
+  br
+  br
+  br
+  each item in db
+    .news-container
+      h2=item.title
+      h4=item.date
+      p=item.description

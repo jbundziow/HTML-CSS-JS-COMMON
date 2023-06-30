@@ -18,3 +18,11 @@ tr {
   border: 1px solid black;
   padding: 0.5em;
 }
+
+.news-container {
+  border: 2px solid black;
+  padding: 1em;
+  margin: 1em;
+  background-color: ghostwhite;
+  max-width: 70%;
+}
