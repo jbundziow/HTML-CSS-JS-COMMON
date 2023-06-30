@@ -5,5 +5,9 @@ module.exports = {
     loginData: {
         correctLogin: 'admin',
         correctPassword: '123',
-    }
+    },
+
+    database: {
+        uri: 'mongodb+srv://admin:test_password@cluster0.bqorlqk.mongodb.net/?retryWrites=true&w=majority',
+    },
 }

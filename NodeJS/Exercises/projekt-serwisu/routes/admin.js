@@ -4,10 +4,21 @@ const router = express.Router();
 
 //mongodb database
 const db = require('./database');
-const { MongoClient } = require("mongodb");
-const uri = "mongodb+srv://admin:test_password@cluster0.bqorlqk.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri);
-db(client, 'insert', {id: 'sd'});
+const uri = config.database.uri;
+
+const getCurrentDateTime = () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  return formattedDateTime;
+}
+
 
 router.all('*', (req,res,next) => {
     if(!req.session.admin && req.path !== '/login') { //user not logged
@@ -19,7 +30,11 @@ router.all('*', (req,res,next) => {
 
 
 router.get('/', function(req, res) {
-        res.render('index', { title: 'Admin' });
+  const data = db(uri, 'showAll')
+.then(res => console.log(res))
+.then(
+  res.render('index', { title: 'Admin' })
+)
   });
 
 router.get('/add', (req,res) => {
@@ -28,9 +43,7 @@ router.get('/add', (req,res) => {
 router.post('/add', (req,res) => {
   const title = req.body.title;
   const description = req.body.description;
-  console.log('title: ' + title);
-  console.log('description: ' + description);
-
+  db(uri, 'insert', {title, description, date: getCurrentDateTime(), dateRaw: Date.now()});
   res.redirect('/admin');
 })
 

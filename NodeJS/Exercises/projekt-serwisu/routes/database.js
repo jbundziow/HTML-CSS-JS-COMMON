@@ -1,22 +1,62 @@
-function database(client, command, object) {
+const { MongoClient } = require("mongodb");
 
-    async function run() {
-  try {
-    const database = client.db('sample_mflix');
-    const movies = database.collection('movies');
-    await movies.insertOne({ title: 'XDDD', gowno: 'XDDD', ajdi: 99 });
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { title: 'XDDD' };
-    const movie = await movies.find(query);
-    const results = await movie.toArray();
-    console.log(results.length);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+function database(uri, command, object) {
+  
+
+  const establishConnectionWithDatabase = () => {
+    const client = new MongoClient(uri);
+    const dbTest = client.db('test');
+    const articles = dbTest.collection('articles');
+    return {client, articles};
   }
-}
-run().catch(console.dir);
 
+  const insert = async (object) => {
+    const {client, articles} = establishConnectionWithDatabase();
+
+    try {
+      //TODO: make here validation of data
+      await articles.insertOne(object);
+      showAll()
+    }
+    catch (e) {
+      console.error(e);
+    }
+    finally {
+      await client.close();
+    }
+  }
+
+  const showAll = async () => {
+    const {client, articles} = establishConnectionWithDatabase();
+
+    try {
+      const data = await articles.find().toArray();
+      console.log(data.length);
+      return data;
+    }
+    catch (e) {
+      console.error(e);
+    }
+    finally {
+      await client.close();
+    }
+  }
+
+
+let data;
+  switch (command) {
+    case 'insert':
+      insert(object);
+      break;
+    case 'showAll':
+      data = showAll().then(res => {return res})
+      return data;
+      break;
+  
+    default:
+      break;
+  }
+  
 }
 
 module.exports = database;
