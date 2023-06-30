@@ -1,4 +1,5 @@
 const { MongoClient } = require("mongodb");
+const ObjectId = require('mongodb').ObjectId;
 
 function database(uri, command, object) {
   
@@ -41,6 +42,20 @@ function database(uri, command, object) {
     }
   }
 
+  const deleteRecord = async (id) => {
+    const {client, articles} = establishConnectionWithDatabase();
+
+    try {
+      await articles.deleteOne({_id: new ObjectId(id)});
+    }
+    catch (e) {
+      console.error(e);
+    }
+    finally {
+      await client.close();
+    }
+  }
+
 
 
   switch (command) {
@@ -50,6 +65,9 @@ function database(uri, command, object) {
     case 'showAll':
       const data = showAll().then(res => {return res})
       return data;
+      break;
+    case 'delete':
+      deleteRecord(object);
       break;
   
     default:

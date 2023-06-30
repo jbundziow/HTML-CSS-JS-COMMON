@@ -15,6 +15,7 @@ block content
       th CreatedRaw
       th Title
       th Description
+      th Delete from db
     each item in db
       tr
         td #{item._id}
@@ -22,3 +23,5 @@ block content
         td #{item.dateRaw}
         td #{item.title}
         td #{item.description}
+        td
+          a(href=`${path}/delete/${item._id}`) Delete

@@ -44,6 +44,11 @@ router.post('/add', (req,res) => {
   res.redirect('/admin');
 })
 
+router.get('/delete/:id', (req,res) => {
+  db(uri,'delete', req.params.id)
+  res.redirect('/admin');
+})
+
 router.get('/login', function(req, res) {
     res.render('login', { title: 'Login' });
   });
