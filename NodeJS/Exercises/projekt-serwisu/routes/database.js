@@ -27,11 +27,17 @@ function database(uri, command, object) {
     }
   }
 
-  const showAll = async () => {
+  const showAll = async (object) => {
     const {client, articles} = establishConnectionWithDatabase();
 
     try {
-      const data = await articles.find().toArray();
+      let data;
+      if (object === 'descending') {
+        data = await articles.find().sort({date: -1}).toArray();
+      }
+      else {
+        data = await articles.find().toArray();
+      }
       return data;
     }
     catch (e) {
@@ -63,7 +69,7 @@ function database(uri, command, object) {
       insert(object);
       break;
     case 'showAll':
-      const data = showAll().then(res => {return res})
+      const data = showAll(object).then(res => {return res})
       return data;
       break;
     case 'delete':

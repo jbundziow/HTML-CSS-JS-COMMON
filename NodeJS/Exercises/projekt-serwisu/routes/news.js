@@ -6,7 +6,7 @@ const db = require('./database');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  db(config.database.uri, 'showAll')
+  db(config.database.uri, 'showAll', 'descending')
   .then(data => {
     res.render('news', { title: 'News', db: data});
   })
