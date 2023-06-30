@@ -30,11 +30,8 @@ router.all('*', (req,res,next) => {
 
 
 router.get('/', function(req, res) {
-  const data = db(uri, 'showAll')
-.then(res => console.log(res))
-.then(
-  res.render('index', { title: 'Admin' })
-)
+  db(uri, 'showAll')
+  .then(data => {res.render('admin', { title: 'Admin', db: data})})
   });
 
 router.get('/add', (req,res) => {

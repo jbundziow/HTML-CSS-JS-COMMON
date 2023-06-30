@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  a(href='/admin/add')='Add a new article'
+  br
+  br
+  br
+  p= 'Data from the database:'
+  table
+    tr
+      th Id
+      th Created
+      th CreatedRaw
+      th Title
+      th Description
+    each item in db
+      tr
+        td #{item._id}
+        td #{item.date}
+        td #{item.dateRaw}
+        td #{item.title}
+        td #{item.description}

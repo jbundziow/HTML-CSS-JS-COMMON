@@ -31,7 +31,6 @@ function database(uri, command, object) {
 
     try {
       const data = await articles.find().toArray();
-      console.log(data.length);
       return data;
     }
     catch (e) {
@@ -43,13 +42,13 @@ function database(uri, command, object) {
   }
 
 
-let data;
+
   switch (command) {
     case 'insert':
       insert(object);
       break;
     case 'showAll':
-      data = showAll().then(res => {return res})
+      const data = showAll().then(res => {return res})
       return data;
       break;
   
