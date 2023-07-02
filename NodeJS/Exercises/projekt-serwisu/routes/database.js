@@ -1,18 +1,18 @@
 const { MongoClient } = require("mongodb");
 const ObjectId = require('mongodb').ObjectId;
 
-function database(uri, command, object) {
+function database(uri, collection, command, object) {
   
 
-  const establishConnectionWithDatabase = () => {
+  const establishConnectionWithDatabase = (collection) => {
     const client = new MongoClient(uri);
     const dbTest = client.db('test');
-    const articles = dbTest.collection('articles');
+    const articles = dbTest.collection(collection);
     return {client, articles};
   }
 
   const insert = async (object) => {
-    const {client, articles} = establishConnectionWithDatabase();
+    const {client, articles} = establishConnectionWithDatabase(collection);
 
     try {
       //TODO: make here validation of data
@@ -28,7 +28,7 @@ function database(uri, command, object) {
   }
 
   const showAll = async (object) => {
-    const {client, articles} = establishConnectionWithDatabase();
+    const {client, articles} = establishConnectionWithDatabase(collection);
 
     try {
       let data;
@@ -49,7 +49,7 @@ function database(uri, command, object) {
   }
 
   const deleteRecord = async (id) => {
-    const {client, articles} = establishConnectionWithDatabase();
+    const {client, articles} = establishConnectionWithDatabase(collection);
 
     try {
       await articles.deleteOne({_id: new ObjectId(id)});

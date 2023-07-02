@@ -30,7 +30,7 @@ router.all('*', (req,res,next) => {
 
 
 router.get('/', function(req, res) {
-  db(uri, 'showAll')
+  db(uri, 'articles', 'showAll')
   .then(data => {res.render('admin', { title: 'Admin', db: data})})
   });
 
@@ -40,12 +40,12 @@ router.get('/add', (req,res) => {
 router.post('/add', (req,res) => {
   const title = req.body.title;
   const description = req.body.description;
-  db(uri, 'insert', {title, description, date: getCurrentDateTime(), dateRaw: Date.now()});
+  db(uri, 'articles', 'insert', {title, description, date: getCurrentDateTime(), dateRaw: Date.now()});
   res.redirect('/admin');
 })
 
 router.get('/delete/:id', (req,res) => {
-  db(uri,'delete', req.params.id)
+  db(uri, 'articles', 'delete', req.params.id)
   res.redirect('/admin');
 })
 
