@@ -1,0 +1,30 @@
+There is in Cluster0 database named 'test'
+
+In test are collections:
+
+
+
+1) 'articles'
+Example:
+{
+    "_id":{"$oid":"649ef4fed7acef3c40451e7a"}
+    "title":"Hello world!","description":"To jest tekst mojego pierwszego artykulu na tej stronie!!!",
+    "date":"2023-06-30 17:30:06",
+    "dateRaw":{"$numberDouble":"1688139006970.0"}
+}
+
+
+
+2) 'quiz1'
+Only 1 record:
+{
+    "_id":{"$oid":"64a169dd5164efaa150226f1"},
+    "answer1":{"$numberInt":"8"},
+    "answer2":{"$numberInt":"8"},
+    "answer3":{"$numberInt":"3"},
+    "answer4":{"$numberInt":"1"},
+    "answer5":{"$numberInt":"4"},
+    "answer6":{"$numberInt":"2"}
+    }
+
+EVERYTHING IS IN CLOUD (MONGODB ATLAS)
