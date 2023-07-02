@@ -1,22 +1,22 @@
 const { MongoClient } = require("mongodb");
 const ObjectId = require('mongodb').ObjectId;
 
-function database(uri, collection, command, object) {
+function database(uri, collectionName, command, object) {
   
 
-  const establishConnectionWithDatabase = (collection) => {
+  const establishConnectionWithDatabase = (collectionName) => {
     const client = new MongoClient(uri);
     const dbTest = client.db('test');
-    const articles = dbTest.collection(collection);
-    return {client, articles};
+    const collection = dbTest.collection(collectionName);
+    return {client, collection};
   }
 
   const insert = async (object) => {
-    const {client, articles} = establishConnectionWithDatabase(collection);
+    const {client, collection} = establishConnectionWithDatabase(collectionName);
 
     try {
       //TODO: make here validation of data
-      await articles.insertOne(object);
+      await collection.insertOne(object);
       showAll()
     }
     catch (e) {
@@ -28,15 +28,15 @@ function database(uri, collection, command, object) {
   }
 
   const showAll = async (object) => {
-    const {client, articles} = establishConnectionWithDatabase(collection);
+    const {client, collection} = establishConnectionWithDatabase(collectionName);
 
     try {
       let data;
       if (object === 'descending') {
-        data = await articles.find().sort({date: -1}).toArray();
+        data = await collection.find().sort({date: -1}).toArray();
       }
       else {
-        data = await articles.find().toArray();
+        data = await collection.find().toArray();
       }
       return data;
     }
@@ -49,10 +49,26 @@ function database(uri, collection, command, object) {
   }
 
   const deleteRecord = async (id) => {
-    const {client, articles} = establishConnectionWithDatabase(collection);
+    const {client, collection} = establishConnectionWithDatabase(collectionName);
 
     try {
-      await articles.deleteOne({_id: new ObjectId(id)});
+      await collection.deleteOne({_id: new ObjectId(id)});
+    }
+    catch (e) {
+      console.error(e);
+    }
+    finally {
+      await client.close();
+    }
+  }
+
+  const updateRecord = async (key, newVal) => {
+    const {client, collection} = establishConnectionWithDatabase(collectionName);
+
+    try {
+      const filter = { _id: new ObjectId('64a169dd5164efaa150226f1') };
+      const update = { $set: { [key]: newVal } };
+      await collection.updateOne(filter, update);
     }
     catch (e) {
       console.error(e);
@@ -74,6 +90,9 @@ function database(uri, collection, command, object) {
       break;
     case 'delete':
       deleteRecord(object);
+      break;
+    case 'update':
+      updateRecord(object.key, object.value);
       break;
   
     default:
