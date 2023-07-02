@@ -33,11 +33,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-
+  
   db(config.database.uri, 'quiz1', 'showAll')
   .then(data => data[0])
   .then(data => {
+    if (!req.session.isVoted) {
     db(uri, 'quiz1', 'update', {key: req.body.quizAnswer, value: data[req.body.quizAnswer]+=1})
+    }
 
     let sum = 0;
     let answers = [];

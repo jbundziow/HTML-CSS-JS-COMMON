@@ -32,7 +32,10 @@ function database(uri, collectionName, command, object) {
 
     try {
       let data;
-      if (object === 'descending') {
+      if (object !== undefined && object.hasOwnProperty('search')) {
+        data = await collection.find({ title: { $regex: object.search, $options: "i" } }).sort({date: -1}).toArray();
+      }
+      else if (object === 'descending') {
         data = await collection.find().sort({date: -1}).toArray();
       }
       else {
