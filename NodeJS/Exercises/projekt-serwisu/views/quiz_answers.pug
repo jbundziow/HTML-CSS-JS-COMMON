@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  br
+  br
+  br
+  .quiz_answers
+    p Kto wygra wybory parlamentarne w 2023?
+    br
+    h4 WYNIKI ANKIETY:
+    p Prawo i Sprawiedliwość --- 
+      span #{answer[0]}%
+    p Koalicja Obywatelska --- 
+      span #{answer[1]}%
+    p Konfederacja --- 
+      span #{answer[2]}%
+    p Trzecia droga --- 
+      span #{answer[3]}%
+    p Lewica i partia razem --- 
+      span #{answer[4]}%
+    p Agrounia --- 
+      span #{answer[5]}%
