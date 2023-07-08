@@ -1,4 +1,5 @@
-const {main} = require('../database/client')
+const { db, collection } = require('../database/db-config')
+const { connect, disconnect, getDb } = require('../database/client')
 
 const apiRoutes = (app) => {
 
@@ -6,9 +7,19 @@ const apiRoutes = (app) => {
         res.send('hello api')
     })
 
-    app.get('/api/show', (req,res) => {
-        main();
-        res.send('hello cars')
+    app.get('/api/show', async (req,res) => {
+        try {
+        await connect();
+        const result = await getDb(db, collection).find().toArray();
+        res.setHeader('Content-Type', 'application/json');
+        res.json(result);
+        }
+        catch(err) {
+            console.error(error);
+        }
+        finally {
+            await disconnect();
+        }
     })
     
 }
