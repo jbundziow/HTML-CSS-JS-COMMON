@@ -1,12 +1,16 @@
 const express = require('express');
 const apiRoutes = require('./routes/api')
-
+const { db, collection } = require('./database/db-config')
+const { connect, disconnect, getDb } = require('./database/client')
 
 const app = express();
 app.set('x-powered-by', false)
 apiRoutes(app);
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    await connect();
+    await getDb(db, collection).insertOne({name: 'oskar', surname: 'nowak'});
+    await disconnect();
     res.send('hello world');
 })
 
@@ -15,5 +19,4 @@ app.listen(PORT, () => {
     console.log(`Server is listening at port ${PORT}.`);
 })
 
-// exports.app = app;
 module.exports = app
