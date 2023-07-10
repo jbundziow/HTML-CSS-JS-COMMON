@@ -1,6 +1,9 @@
 const request = require('supertest');
 const app = require('../app');
 
+it('x', () => {
+    expect(true).toBe(true);
+})
 
 
 // it('/api/newcar test', async () => {
