@@ -3,7 +3,7 @@ const { connect, disconnect, getDb } = require('./client')
 
 
 const isCarDataValidated = (object) => {
-    console.log(object.brand, object.model);
+    
     if(typeof object !== 'object') {
         return false;
     }
@@ -19,7 +19,7 @@ const isCarDataValidated = (object) => {
     else if(object.brand === '' || object.model === '') {
         return false;
     }
-    else if (isNaN(Date.parse(object.carInspectionDate))) {
+    else if (isNaN(Date.parse(object.carInspectionDate)) || Date.parse(object.carInspectionDate) < 0 ) {
         return false;
     }
     else {

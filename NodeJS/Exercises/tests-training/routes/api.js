@@ -1,6 +1,6 @@
 const { db, collection } = require('../database/db-config')
 const { connect, disconnect, getDb } = require('../database/client')
-const {carDataIsValidated} = require('../database/db-insert-car')
+const {isCarDataValidated} = require('../database/db-insert-car')
 const apiRoutes = (app) => {
 
     app.get('/api', (req,res) => {
@@ -15,30 +15,50 @@ const apiRoutes = (app) => {
         res.json(result);
         }
         catch(err) {
-            console.error(error);
+            console.error(err);
         }
         finally {
             await disconnect();
         }
     })
 
-    app.post('/api/newcar', (req,res) => {
-        console.log(req.body);
-        console.log(carDataIsValidated(req.body));
-        if(!carDataIsValidated(req.body)) {
-            res.statusCode = 404;
-            res.json({error: 'bad data'})
+    app.post('/api/newcar', async (req,res) => {
+        const obj = req.body;
+        let finished = true;
+
+        if(!isCarDataValidated(obj)) {
+            res.statusCode = 400;
+            res.setHeader('Content-Type', 'application/json');
+            res.json({statusCode: res.statusCode, statusInfo: `ERROR! You've passed wrong data!`})
         }
-        // console.log(req.headers);
-        let timestamp = Date.parse('2017-10-23');
-        console.log(timestamp);
-        let xx;
-        if (isNaN(timestamp)) {
-            xx="Invalid date format";
-        } else {
-            xx="Valid date format";
+        else {
+            //format as e.g. "23.05.2024"
+            req.body.carInspectionDate = new Date(Date.parse(req.body.carInspectionDate)).toLocaleDateString('pl-PL');
+            //format as e.g. "11.07.2023, 22:29:00"
+            req.body.lastModified = new Date(Date.now()).toLocaleString('pl-PL');
+            
+            try {
+            await connect();
+            await getDb(db, collection).insertOne(obj);
+            }
+            catch(err) {
+                finished = false;
+                console.error(err);
+            }
+            finally {
+                await disconnect();
+                if(finished) {
+                    res.statusCode = 200;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json({statusCode: res.statusCode, statusInfo: 'SUCCESS! Your data has been saved in the database.'})
+                }
+                else {
+                    res.statusCode = 503;
+                    res.setHeader('Content-Type', 'application/json');
+                    res.json({statusCode: res.statusCode, statusInfo: `ERROR! You've passed a correct data format, but there is a problem with inserting it to the database. Try again later.`})
+                }
+            }
         }
-        res.send(xx)
     })
     
 }
