@@ -1,5 +1,6 @@
 const { db, collection } = require('./db-config')
 const { connect, disconnect, getDb } = require('./client')
+const ObjectId = require('mongoose').Types.ObjectId;
 
 
 const isCarDataValidated = (object) => {
@@ -26,9 +27,7 @@ const isCarDataValidated = (object) => {
     }
 }
 
-const isIDcorrect = (id) => {
-    id.match(/^[0-9a-fA-F]{24}$/) ? true : false;
-}
+const isIDcorrect = (id) => ObjectId.isValid(id) ? true : false;
 
 
 
