@@ -12,12 +12,10 @@ const apiRoutes = (app) => {
         let finished = true;
         let statusCode, statusInfo;
         let result;
-        console.log(req.query);
-
         try {
         await connect();
+        // TODO: handle req.query here and sort data/search for specific word
         result = await getDb(db, collection).find().toArray();
-        
         statusCode = 200;
         if (result.length > 0) {
             statusInfo = 'OK';
@@ -87,18 +85,43 @@ const apiRoutes = (app) => {
     app.get('/api/delete/:id', async (req,res) => {
         let statusCode, statusInfo;
         let mongoID;
-        console.log(typeof req.params.id)
-        console.log(req.params.id)
-        console.log(isIDcorrect(req.params.id))
         if(isIDcorrect(req.params.id)) {
             mongoID = getObjectId(req.params.id)
-            res.json('ok');
+            try {
+                await connect();
+                result = await getDb(db, collection).find({_id: mongoID}).toArray();
+                
+                if (result.length === 1) {
+                    await getDb(db, collection).deleteOne({_id: mongoID});
+                    statusCode = 200;
+                    statusInfo = 'Entry in the database has beed successfully deleted.'
+                }
+                else {
+                    statusCode = 200;
+                    statusInfo = 'Not found entry in database of this ID.'
+                }
+                
+                }
+                catch(err) {
+                    statusCode = 404;
+                    statusInfo = 'Something went wrong...';
+                    console.error(err);
+                }
+                finally {
+                    await disconnect();
+                    res.setHeader('Content-Type', 'application/json');
+                    res.statusCode = statusCode;
+                    res.json({statusCode, statusInfo})
+                }
         }
         else {
             statusCode = 200;
             statusInfo = 'You passed a wrong ID!';
+            res.setHeader('Content-Type', 'application/json');
+            res.statusCode = statusCode;
             res.json({statusCode, statusInfo})
         }
+        
     })
     
     app.get('*', (req,res) => {
