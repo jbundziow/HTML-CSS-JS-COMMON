@@ -1,5 +1,6 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const {login, password} = require('./db-config');
+const {ObjectId} = require('mongodb')
 
 const uri = `mongodb+srv://${login}:${password}@cluster0.bqorlqk.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -29,5 +30,7 @@ const client = new MongoClient(uri, {
     return client.db(database).collection(collection);
   }
 
+  const getObjectId = (idString) => new ObjectId(idString);
 
-module.exports =  {connect, disconnect, drop, getDb}
+
+module.exports =  {connect, disconnect, drop, getDb, getObjectId}

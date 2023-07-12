@@ -3,7 +3,6 @@ const { connect, disconnect, getDb } = require('./client')
 
 
 const isCarDataValidated = (object) => {
-    
     if(typeof object !== 'object') {
         return false;
     }
@@ -27,4 +26,10 @@ const isCarDataValidated = (object) => {
     }
 }
 
-module.exports={isCarDataValidated};
+const isIDcorrect = (id) => {
+    id.match(/^[0-9a-fA-F]{24}$/) ? true : false;
+}
+
+
+
+module.exports={isCarDataValidated, isIDcorrect};

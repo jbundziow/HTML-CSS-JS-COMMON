@@ -1,5 +1,6 @@
 const request = require('supertest');
-const {isCarDataValidated} = require('./db-insert-car')
+const {isCarDataValidated, isIDcorrect} = require('./dataValidation')
+
 
 
 describe('isCarDataValidated function check - pass correct object', () => {
@@ -260,4 +261,35 @@ describe('isCarDataValidated function check - pass uncorrect object', () => {
 		expect(result).toBeFalsy();
 	})
 	
-})
+});
+
+describe('isIDcorrect function check', () => {
+    it('correct id test 1', () => {
+        expect(isIDcorrect('64ae36f09fb27147a123a471')).toBeTruthy();
+    })
+    it('correct id test 2', () => {
+        expect(isIDcorrect('64adbc68be4ed2d6b9fd38f6')).toBeTruthy();
+    })
+    it('correct id test 3', () => {
+        expect(isIDcorrect('64adbc19be4ed2d6b9fd38f4')).toBeTruthy();
+    })
+    it('correct id test 4', () => {
+        expect(isIDcorrect('64adbbebbe4ed2d6b9fd38f3')).toBeTruthy();
+    })
+    it('correct id test 5', () => {
+        expect(isIDcorrect(999888777666555444333222)).toBeTruthy();
+    })
+
+    it('uncorrect id test 1', () => {
+        expect(isIDcorrect('64ae36f09fb27147a471')).toBeFalsy(); //to short
+    })
+    it('uncorrect id test 2', () => {
+        expect(isIDcorrect('64adbc68be4ed2$$$9fd38f6')).toBeFalsy(); //special character
+    })
+    it('uncorrect id test 3', () => {
+        expect(isIDcorrect()).toBeFalsy();
+    })
+    it('uncorrect id test 4', () => {
+        expect(isIDcorrect('')).toBeFalsy();
+    })
+});

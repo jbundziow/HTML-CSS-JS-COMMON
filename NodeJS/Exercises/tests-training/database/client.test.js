@@ -1,5 +1,6 @@
 const request = require('supertest');
-const {connect, disconnect, drop, getDb} = require('./client');
+const {connect, disconnect, drop, getDb, isIDcorrect} = require('./client');
+const {ObjectId} = require('mongodb')
 
 it('create new database and collection, create one record in collection, check if length of collection is 1, drop database and check if length now is 0', async () => {
     let sizeAfterAdd, sizeAfterDrop;
@@ -19,4 +20,8 @@ it('create new database and collection, create one record in collection, check i
 
     expect(sizeAfterAdd).toEqual(1);
     expect(sizeAfterDrop).toEqual(0);
-})
+});
+
+
+
+
