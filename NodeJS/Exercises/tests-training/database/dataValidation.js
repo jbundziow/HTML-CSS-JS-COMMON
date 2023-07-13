@@ -30,5 +30,30 @@ const isCarDataValidated = (object) => {
 const isIDcorrect = (id) => ObjectId.isValid(id) ? true : false;
 
 
+const isPutObjectValidated = (object) => {
+    if(typeof object !== 'object') {
+        return false;
+    }
+    else if(Object.keys(object).length !== 4) {
+        return false;
+    }
+    else if(!object.hasOwnProperty('_id') || !object.hasOwnProperty('brand') || !object.hasOwnProperty('model') || !object.hasOwnProperty('carInspectionDate')) {
+        return false;
+    }
 
-module.exports={isCarDataValidated, isIDcorrect};
+    const id = object._id;
+    const dataObj = {brand: object.brand, model: object.model, carInspectionDate: object.carInspectionDate};
+
+    if(!isIDcorrect(id)) {
+        return false;
+    }
+    else if (!isCarDataValidated(dataObj)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+
+module.exports={isCarDataValidated, isIDcorrect, isPutObjectValidated};

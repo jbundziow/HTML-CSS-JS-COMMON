@@ -1,5 +1,5 @@
 const request = require('supertest');
-const {isCarDataValidated, isIDcorrect} = require('./dataValidation')
+const {isCarDataValidated, isIDcorrect, isPutObjectValidated} = require('./dataValidation')
 
 
 

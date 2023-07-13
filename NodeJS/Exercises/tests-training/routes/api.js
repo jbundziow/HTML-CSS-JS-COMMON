@@ -1,6 +1,6 @@
 const { db, collection } = require('../database/db-config')
 const { connect, disconnect, getDb, getObjectId } = require('../database/client')
-const {isCarDataValidated, isIDcorrect} = require('../database/dataValidation')
+const {isCarDataValidated, isIDcorrect, isPutObjectValidated} = require('../database/dataValidation')
 
 const apiRoutes = (app) => {
 
@@ -122,6 +122,16 @@ const apiRoutes = (app) => {
             res.json({statusCode, statusInfo})
         }
         
+    })
+
+
+    app.put('/api/update', (req, res) => {
+        if(isPutObjectValidated(req.body)) {
+
+        }
+        else {
+
+        }
     })
     
     app.get('*', (req,res) => {
