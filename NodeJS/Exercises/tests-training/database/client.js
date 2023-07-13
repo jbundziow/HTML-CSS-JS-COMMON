@@ -1,6 +1,6 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const {login, password} = require('./db-config');
-const {ObjectId} = require('mongodb')
+const {ObjectId} = require('mongodb');
 
 const uri = `mongodb+srv://${login}:${password}@cluster0.bqorlqk.mongodb.net/?retryWrites=true&w=majority`;
 

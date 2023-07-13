@@ -293,3 +293,122 @@ describe('isIDcorrect function check', () => {
         expect(isIDcorrect('')).toBeFalsy();
     })
 });
+
+
+describe('isPutObjectValidated function check - correct answers', () => {
+    it('correct data 1', () => {
+        const data = {
+            _id: '64ae36f09fb27147a123a471',
+            brand: 'Hyundai',
+            model: 'i30',
+            carInspectionDate: '2019-01-01T23:59:22'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeTruthy();
+    })
+	
+	it('correct data 2', () => {
+        const data = {
+            _id: '64adbc68be4ed2d6b9fd38f6',
+            brand: 'Citroen',
+            model: 'C4',
+            carInspectionDate: '2015-03-25'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeTruthy();
+    })
+	
+	it('correct data 3', () => {
+        const data = {
+            _id: '64adbc19be4ed2d6b9fd38f4',
+            brand: 'Opel',
+            model: 'Astra',
+            carInspectionDate: 'Mar 25 2025'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeTruthy();
+    })
+	
+	it('correct data 4', () => {
+        const data = {
+            _id: '64adbbebbe4ed2d6b9fd38f3',
+            brand: 'peugeot',
+            model: '308',
+            carInspectionDate: 'January 25 2023'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeTruthy();
+    })
+	
+	it('correct data 5', () => {
+        const data = {
+            _id: 999888777666555444333222,
+            brand: 'TOYOTA',
+            model: 'YARIS',
+            carInspectionDate: '2024-12-02T12:00:00Z'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeTruthy();
+    })
+});
+
+
+describe('isPutObjectValidated function check - uncorrect answers', () => {
+    it('correct data 1', () => {
+        const data = {
+            _id: '64adbbebbb9fd38f3',
+            brand: 'peugeot',
+            model: '308',
+            carInspectionDate: 'January 25 2023'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeFalsy();
+    })
+
+    it('correct data 2', () => {
+        const data = {
+            _id: '64adbbebbe4ed2d6b9fd38f3',
+            model: '308',
+            carInspectionDate: 'January 25 2023'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeFalsy();
+    })
+
+    it('correct data 3', () => {
+        const data = {
+            _id: '64adbbebbe4ed2d6b9fd38f3',
+            brand: 'peugeot',
+            model: '308',
+            carIectionDate: 'January 25 2023'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeFalsy();
+    })
+
+    it('correct data 4', () => {
+        const data = {
+            brand: 'peugeot',
+            model: '308',
+            carInspectionDate: 'January 25 2023'
+        }
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeFalsy();
+    })
+
+    it('correct data 5', () => {
+        const data = {}
+
+        const result = isPutObjectValidated(data);
+        expect(result).toBeFalsy();
+    })
+});

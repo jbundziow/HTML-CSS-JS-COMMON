@@ -1,20 +1,17 @@
 const { db, collection } = require('../database/db-config')
 const { connect, disconnect, getDb, getObjectId } = require('../database/client')
 const {isCarDataValidated, isIDcorrect, isPutObjectValidated} = require('../database/dataValidation')
+const {sortQuery} = require('./sortQuery');
 
 const apiRoutes = (app) => {
-
-    // app.get('/api', (req,res) => {
-    //     res.send('hello api')
-    // })
-
+    
     app.get('/api/show', async (req,res) => {
-        let finished = true;
         let statusCode, statusInfo;
         let result;
         try {
         await connect();
         // TODO: handle req.query here and sort data/search for specific word
+        // TODO: use sortQuery(command)
         result = await getDb(db, collection).find().toArray();
         statusCode = 200;
         if (result.length > 0) {
@@ -25,7 +22,6 @@ const apiRoutes = (app) => {
         }
         }
         catch(err) {
-            finished = false;
             statusCode = 404;
             statusInfo = 'Something went wrong...';
             console.error(err);
@@ -115,7 +111,7 @@ const apiRoutes = (app) => {
                 }
         }
         else {
-            statusCode = 200;
+            statusCode = 400;
             statusInfo = 'You passed a wrong ID!';
             res.setHeader('Content-Type', 'application/json');
             res.statusCode = statusCode;
@@ -125,13 +121,56 @@ const apiRoutes = (app) => {
     })
 
 
-    app.put('/api/update', (req, res) => {
+    app.put('/api/update', async (req, res) => {
+        let statusCode, statusInfo;
+        let resultOfUpdate;
         if(isPutObjectValidated(req.body)) {
+            try {
+                const {_id, brand, model, carInspectionDate} = req.body;
+                await connect();
+                resultOfUpdate = await getDb(db, collection).updateOne(
+                { _id: ObjectId(getObjectId(_id)) },
+                {
+                    $set: {
+                    brand: brand,
+                    model: model,
+                    carInspectionDate: carInspectionDate
+                    }
+                })
+            }
+            catch(err) {
+                statusCode = 404;
+                statusInfo = 'Something went wrong...';
+                console.error(err);
+            }
+            finally {
+                await disconnect();
+                if(resultOfUpdate.hasOwnProperty('modifiedCount')) {
+                    if(resultOfUpdate.modifiedCount === 1) {
+                        statusCode = 200;
+                        statusInfo = 'Successfully updated record in the database.';
+                    }
+                    else {
+                        statusCode = 500;
+                        statusInfo = 'There is an issue with update that record in the database...';
+                    }
+                }
+                else {
+                    statusCode = 404;
+                    statusInfo = 'Something went wrong...';
+                }
+            }
+            
 
         }
         else {
-
+            statusCode = 400;
+            statusInfo = `You've passed a wrong object in body! Check your data and try again.`;
         }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.statusCode = statusCode;
+    res.json({statusCode, statusInfo})
     })
     
     app.get('*', (req,res) => {
