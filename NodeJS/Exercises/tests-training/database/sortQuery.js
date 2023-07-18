@@ -12,11 +12,55 @@ const sortQuery = async (command, term) => {
 
     switch (command) {
         case 'id_near':
-            result = await getDb(db, collection).find().sort({_id: -1}).toArray();
+             //1) get all data to array
+             result = await getDb(db, collection).find().toArray();
+
+             //2) convert to a Date()
+             result.map(record => {
+                 const parts = record.carInspectionDate.split('.')
+                 const formattedDateString = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                 record.carInspectionDate = new Date(formattedDateString);
+             })
+ 
+             //3) sort by date
+             result.sort((a, b) => {
+                 const dateA = new Date(a.carInspectionDate);
+                 const dateB = new Date(b.carInspectionDate);
+                 
+                 return dateB - dateA;
+             });
+ 
+             //4) go back to the 'dd.mm.yyyy' format
+             result.map(record => {
+                 record.carInspectionDate = new Date(Date.parse(record.carInspectionDate)).toLocaleDateString('pl-PL');
+             })
+
             break;
 
         case 'id_far':
-            result = await getDb(db, collection).find().sort({_id: 1}).toArray();
+            //1) get all data to array
+            result = await getDb(db, collection).find().toArray();
+
+            //2) convert to a Date()
+            result.map(record => {
+                const parts = record.carInspectionDate.split('.')
+                const formattedDateString = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                record.carInspectionDate = new Date(formattedDateString);
+            })
+
+            //3) sort by date
+            result.sort((a, b) => {
+                const dateA = new Date(a.carInspectionDate);
+                const dateB = new Date(b.carInspectionDate);
+                
+                return dateA - dateB;
+            });
+
+            //4) go back to the 'dd.mm.yyyy' format
+            result.map(record => {
+                record.carInspectionDate = new Date(Date.parse(record.carInspectionDate)).toLocaleDateString('pl-PL');
+            })
+            
             break;
 
         case 'md_near':
@@ -46,8 +90,8 @@ const sortQuery = async (command, term) => {
 const areSortQueriesValidated = (queryObj) => {
     const allowedCommands = ['id_near', 'id_far', 'md_near', 'md_far', 'lookfor'];
 
-    if(queryObj === undefined || typeof(sortQuery) !== 'object') {
-    return false;
+    if(queryObj === undefined || typeof(queryObj) !== 'object') {
+        return false;
     }
     else if(!queryObj.hasOwnProperty('sort') || typeof(queryObj.sort) !== 'string') {
         return false;
@@ -61,8 +105,11 @@ const areSortQueriesValidated = (queryObj) => {
     else if(queryObj.hasOwnProperty('term') && typeof(queryObj.term) !== 'string') {
         return false;
     }
-    else if(!allowedCommands.contains(queryObj.sort)) {
+    else if(!allowedCommands.includes(queryObj.sort)) {
         return false;
+    }
+    else {
+        return true;
     }
     }
 

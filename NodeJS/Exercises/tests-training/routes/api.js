@@ -10,8 +10,7 @@ const apiRoutes = (app) => {
         let result;
         try {
         await connect();
-
-        if(req.query !== {}) {
+        if(Object.entries(req.query).length !== 0) {
             if(areSortQueriesValidated(req.query)) {
                 result = await sortQuery(req.query.sort, req.query.term)
                 statusCode = 200;
@@ -22,7 +21,7 @@ const apiRoutes = (app) => {
             }
         }
         else {
-            result = await getDb(db, collection).find().toArray();
+            result = await getDb(db, collection).find().sort({_id: -1}).toArray();
             statusCode = 200;
         }
         
@@ -146,7 +145,8 @@ const apiRoutes = (app) => {
                     $set: {
                     brand: brand,
                     model: model,
-                    carInspectionDate: carInspectionDate
+                    carInspectionDate: new Date(Date.parse(carInspectionDate)).toLocaleDateString('pl-PL'),
+                    lastModified: new Date(Date.now()).toLocaleString('pl-PL')
                     }
                 })
             }
