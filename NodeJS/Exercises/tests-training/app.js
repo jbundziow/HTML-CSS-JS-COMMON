@@ -13,11 +13,8 @@ apiRoutes(app);
 
 
 
-app.get('/', async (req, res) => {
-    await connect();
-    await getDb(db, collection).insertOne({name: 'oskar', surname: 'nowak'});
-    await disconnect();
-    res.send('hello world');
+app.get('/', (req, res) => {
+    res.send(`Hello! Let's check our /api`);
 })
 
  

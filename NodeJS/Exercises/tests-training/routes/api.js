@@ -1,24 +1,31 @@
 const { db, collection } = require('../database/db-config')
 const { connect, disconnect, getDb, getObjectId } = require('../database/client')
 const {isCarDataValidated, isIDcorrect, isPutObjectValidated} = require('../database/dataValidation')
-const {sortQuery} = require('../database/sortQuery');
+const {sortQuery, areSortQueriesValidated} = require('../database/sortQuery');
 
 const apiRoutes = (app) => {
     
     app.get('/api/show', async (req,res) => {
         let statusCode, statusInfo;
         let result;
-        console.log(req.query);
         try {
         await connect();
-        // TODO: handle req.query here and sort data/search for specific word
-        // TODO: use sortQuery(command)
-        // result = await getDb(db, collection).find().sort({_id: -1}).toArray();
-        // result = await getDb(db, collection).find().sort({lastModified: 1}).toArray();
-        const searchTerm = 'da';
-        const regex = new RegExp(searchTerm, 'i');
-        result = await getDb(db, collection).find({$or:[ {brand: regex}, {model: regex} ]}).toArray();
-        statusCode = 200;
+
+        if(req.query !== {}) {
+            if(areSortQueriesValidated(req.query)) {
+                result = await sortQuery(req.query.sort, req.query.term)
+                statusCode = 200;
+            }
+            else {
+                statusCode = 404;
+                statusInfo = 'You passed a wrong query in URL!';
+            }
+        }
+        else {
+            result = await getDb(db, collection).find().toArray();
+            statusCode = 200;
+        }
+        
         if (result.length > 0) {
             statusInfo = 'OK';
         }

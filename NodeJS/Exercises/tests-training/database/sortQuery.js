@@ -1,7 +1,7 @@
 const { getDb } = require('./client');
 const { db, collection } = require('./db-config')
 
-const sortQuery = async (command) => {
+const sortQuery = async (command, term) => {
     // id_near = inspection date from nearest
     // id_far = inspection date from farthest
     // md_near = last modified date from nearest
@@ -29,7 +29,8 @@ const sortQuery = async (command) => {
             break;
 
         case 'lookfor':
-            result = await getDb(db, collection).find({$or:[ {brand: /$Op/i}, {model: /Op/i} ]}).toArray();
+            const regex = new RegExp(term, 'i');
+            result = await getDb(db, collection).find({$or:[ {brand: regex}, {model: regex} ]}).sort({_id: -1}).toArray();
             break;
 
 
@@ -41,4 +42,28 @@ const sortQuery = async (command) => {
     return result;
 }
 
-module.exports = {sortQuery};
+
+const areSortQueriesValidated = (queryObj) => {
+    const allowedCommands = ['id_near', 'id_far', 'md_near', 'md_far', 'lookfor'];
+
+    if(queryObj === undefined || typeof(sortQuery) !== 'object') {
+    return false;
+    }
+    else if(!queryObj.hasOwnProperty('sort') || typeof(queryObj.sort) !== 'string') {
+        return false;
+    }
+    else if(queryObj.sort === 'lookfor' && !queryObj.hasOwnProperty('term')) {
+        return false;
+    }
+    else if(queryObj.sort === 'lookfor' && queryObj.hasOwnProperty('term') && queryObj.term === '') {
+        return false;
+    }
+    else if(queryObj.hasOwnProperty('term') && typeof(queryObj.term) !== 'string') {
+        return false;
+    }
+    else if(!allowedCommands.contains(queryObj.sort)) {
+        return false;
+    }
+    }
+
+module.exports = {sortQuery, areSortQueriesValidated};
