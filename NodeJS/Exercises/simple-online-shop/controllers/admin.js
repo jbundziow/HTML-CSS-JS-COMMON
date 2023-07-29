@@ -1,24 +1,19 @@
 const express = require('express');
 const { admin } = require('../utilities/config');
 
+exports.checkLogin = (req,res,next) => {
+    if(!req.session.admin && req.path !== '/login') {
+        res.redirect('/admin/login');
+    }
+    next();
+}
+
 exports.adminHandler = (req,res,next) => {
-    console.log(req.session.admin);
-    if(req.session.admin) {
         res.render('admin/index');
-    }
-    else {
-        res.redirect('/admin/login')
-    }
 }
 
 exports.loginHandler = (req,res,next) => {
-    console.log(req.session.admin);
-    if(req.session.admin) {
-    res.redirect('/admin')
-    }
-    else {
-    res.render('admin/login')
-    }
+        res.render('admin/login')
 }
 
 exports.loginPostHandler = (req,res,next) => {
@@ -32,11 +27,8 @@ exports.loginPostHandler = (req,res,next) => {
         res.render('admin/login', {message: 'Bad password!'})
     }
     else {
-        req.session.admin = 1; //set cookie
-        console.log(req.session.admin);
-        // res.cookie('user', correctLogin, { maxAge: 900000, httpOnly: true });
-        res.redirect('/admin'); // Redirect to a dashboard page after successful login
-        // res.render('shop/cart')
+        req.session.admin = 1;
+        res.redirect('/admin');
     }
 }
 
