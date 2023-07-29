@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Roboto&family=Shadows+Into+Light+Two&display=swap");
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background-color: rgb(194, 196, 197);
+}
+nav {
+  width: 100%;
+  background-color: black;
+}
+nav ul {
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+nav ul li:not(:first-of-type) {
+  margin-left: 4rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: green;
+}
