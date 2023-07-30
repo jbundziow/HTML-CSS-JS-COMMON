@@ -5,15 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sklep - strona główna</title>
     <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/admin/index.css" />
   </head>
   <body>
     <nav>
       <ul>
-        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/cart">Cart [0]</a></li>
-        <li><a href="/admin">Admin</a></li>
+        <li><a href="/admin" class="active">Admin</a></li>
       </ul>
     </nav>
-    <p>This is the admin page after log in.</p>
+
+    <div class="container">
+      <h2>All products available in shop:</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Product 1</td>
+              <td>This is the first product</td>
+              <td>$19.99</td>
+              <td><a href="#" class="edit-link">Edit</a></td>
+              <td><a href="#" class="delete-link">Delete</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Product 2</td>
+              <td>This is the second product</td>
+              <td>$29.99</td>
+              <td><a href="#" class="edit-link">Edit</a></td>
+              <td><a href="#" class="delete-link">Delete</a></td>
+            </tr>
+            <!-- Add more product rows here as needed -->
+          </tbody>
+        </table>
+      </div>
+      <a href="/admin/add_new_product" class="add-new-product"
+        >Add New Product</a
+      >
+    </div>
   </body>
 </html>

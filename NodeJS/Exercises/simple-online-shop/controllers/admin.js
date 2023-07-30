@@ -36,3 +36,7 @@ exports.logoutHandler = (req,res,next) => {
     delete req.session.admin;
     res.redirect('/admin/login');
 }
+
+exports.addNewProduct = (req,res,next) => {
+    res.render('admin/add_new_product');
+}

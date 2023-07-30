@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sklep - koszyk</title>
     <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/shop/cart.css" />
   </head>
   <body>
     <nav>
@@ -14,8 +15,44 @@
         <li><a href="/admin">Admin</a></li>
       </ul>
     </nav>
-    <div class="cart-list">
-      <h1>No products here!</h1>
+    <div class="container">
+      <h2>Shopping Cart</h2>
+      <div class="cart">
+        <div class="cart-item">
+          <div class="item-details">
+            <h3 class="item-title">Product 1</h3>
+            <p class="item-price">$19.99</p>
+          </div>
+          <div class="item-quantity">
+            <label for="quantity-1">Quantity:</label>
+            <input type="number" id="quantity-1" value="1" min="1" />
+          </div>
+          <div class="item-total">
+            <p class="item-sum-price">$19.99</p>
+          </div>
+        </div>
+
+        <div class="cart-item">
+          <div class="item-details">
+            <h3 class="item-title">Product 2</h3>
+            <p class="item-price">$29.99</p>
+          </div>
+          <div class="item-quantity">
+            <label for="quantity-2">Quantity:</label>
+            <input type="number" id="quantity-2" value="1" min="1" />
+          </div>
+          <div class="item-total">
+            <p class="item-sum-price">$29.99</p>
+          </div>
+        </div>
+
+        <!-- Add more cart items here as needed -->
+
+        <div class="cart-total">
+          <p>Total Price: <span id="total-price">$49.98</span></p>
+          <button class="checkout-button">Checkout</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
