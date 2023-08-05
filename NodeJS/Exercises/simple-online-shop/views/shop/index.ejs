@@ -18,70 +18,19 @@
     <div class="container">
       <h2>Product Cards</h2>
       <div class="card-container">
+        <% if(products.length >0) { products.forEach(product => { %>
         <div class="card">
-          <h3 class="card-title">Product 1</h3>
-          <p class="card-price">$19.99</p>
+          <h3 class="card-title"><%=product.title%></h3>
+          <p class="card-price"><%=product.price.toFixed(2) + '€'%></p>
           <div class="card-buttons">
             <button class="card-button see-more-button">See More</button>
             <button class="card-button add-to-cart-button">Add to Cart</button>
           </div>
         </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card-title">Product 2</h3>
-          <p class="card-price">$29.99</p>
-          <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
-            <button class="card-button add-to-cart-button">Add to Cart</button>
-          </div>
-        </div>
+        <% }) } else { %>
+        <h1>No products found!</h1>
+        <% } %>
+
         <!-- Add more product cards here as needed -->
       </div>
     </div>
