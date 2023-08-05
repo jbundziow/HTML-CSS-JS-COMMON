@@ -18,6 +18,7 @@
 
     <div class="container">
       <h2>All products available in shop:</h2>
+      <% if(products.length > 0) { %>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -31,26 +32,22 @@
             </tr>
           </thead>
           <tbody>
+            <% products.forEach(product => { %>
             <tr>
-              <td>1</td>
-              <td>Product 1</td>
-              <td>This is the first product</td>
-              <td>$19.99</td>
+              <td><%=product.id %></td>
+              <td><%=product.title %></td>
+              <td><%=product.description %></td>
+              <td><%=product.price.toFixed(2) + '€' %></td>
               <td><a href="#" class="edit-link">Edit</a></td>
               <td><a href="#" class="delete-link">Delete</a></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Product 2</td>
-              <td>This is the second product</td>
-              <td>$29.99</td>
-              <td><a href="#" class="edit-link">Edit</a></td>
-              <td><a href="#" class="delete-link">Delete</a></td>
-            </tr>
-            <!-- Add more product rows here as needed -->
+            <% }) %>
           </tbody>
         </table>
       </div>
+      <% } else { %>
+      <h1>No products found!</h1>
+      <% } %>
       <a href="/admin/add_new_product" class="add-new-product"
         >Add New Product</a
       >

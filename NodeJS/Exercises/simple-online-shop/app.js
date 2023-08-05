@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const shopRoutes = require('./routes/shop')
 const adminRoutes = require('./routes/admin')
 
+const db = require('./utilities/database')
+
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -32,6 +34,5 @@ app.listen(PORT, 'localhost', () => {
 
 app.use('/', shopRoutes);
 app.use('/admin', adminRoutes);
-
 
 

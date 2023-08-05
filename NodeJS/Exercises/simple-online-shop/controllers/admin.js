@@ -1,5 +1,6 @@
 const express = require('express');
 const { admin } = require('../utilities/config');
+const Product = require('../models/Product')
 
 exports.checkLogin = (req,res,next) => {
     if(!req.session.admin && req.path !== '/login') {
@@ -9,7 +10,15 @@ exports.checkLogin = (req,res,next) => {
 }
 
 exports.adminHandler = (req,res,next) => {
-        res.render('admin/index');
+        Product.fetchAll()
+        .then(data => data[0])
+        .then(products => {
+            res.render('admin/index', {
+            products: products
+            }
+        );
+        })
+        .catch(err => console.log(err));
 }
 
 exports.loginHandler = (req,res,next) => {
