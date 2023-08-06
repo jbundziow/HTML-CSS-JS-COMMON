@@ -12,4 +12,6 @@ app.get('/cart', (req,res,next) => {
 
 app.get('/product/:id', showProductDetailsPage);
 
+
+
 module.exports = app;

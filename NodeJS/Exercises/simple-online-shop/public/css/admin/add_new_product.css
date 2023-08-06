@@ -54,3 +54,7 @@ textarea {
 .acknowledge-button:hover {
   background-color: #45a049;
 }
+
+.form-bad-data {
+  color: red;
+}

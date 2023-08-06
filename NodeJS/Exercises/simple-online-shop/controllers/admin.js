@@ -1,6 +1,7 @@
 const express = require('express');
 const { admin } = require('../utilities/config');
-const Product = require('../models/Product')
+const Product = require('../models/Product');
+const { isProductDataValidated } = require('../data_validation/productValidation');
 
 exports.checkLogin = (req,res,next) => {
     if(!req.session.admin && req.path !== '/login') {
@@ -46,6 +47,19 @@ exports.logoutHandler = (req,res,next) => {
     res.redirect('/admin/login');
 }
 
-exports.addNewProduct = (req,res,next) => {
-    res.render('admin/add_new_product');
+exports.getAddNewProduct = (req,res,next) => {
+    res.render('admin/add_new_product', {error: false});
+}
+
+exports.postAddNewProduct = (req,res,next) => {
+    const obj = req.body
+    if(isProductDataValidated(obj)) {
+        const newProduct = new Product(null, obj.title, obj.description, obj.price);
+        newProduct.insertOne()
+        .then(res.redirect('/admin'))
+        .catch(err => console.log(err))
+    }
+    else {
+        res.render('admin/add_new_product', {error: true});
+    }
 }

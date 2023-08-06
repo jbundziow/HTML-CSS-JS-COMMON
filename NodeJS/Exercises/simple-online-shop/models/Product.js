@@ -20,6 +20,10 @@ class Product {
         return db.execute('SELECT id FROM `products`')
     }
 
+    insertOne() {
+        return db.execute('INSERT INTO `products` (`title`, `description`, `price`) VALUES (?,?,?)', [this.title, this.description, this.price]);
+    }
+
     
 }
 
