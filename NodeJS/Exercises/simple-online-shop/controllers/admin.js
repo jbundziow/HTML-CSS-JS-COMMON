@@ -7,7 +7,9 @@ exports.checkLogin = (req,res,next) => {
     if(!req.session.admin && req.path !== '/login') {
         res.redirect('/admin/login');
     }
-    next();
+    else {
+        next();
+    }
 }
 
 exports.adminHandler = (req,res,next) => {
@@ -62,4 +64,10 @@ exports.postAddNewProduct = (req,res,next) => {
     else {
         res.render('admin/add_new_product', {error: true});
     }
+}
+
+exports.deleteProduct = (req,res,next) => {
+    Product.deleteProduct(req.params.id)
+    .catch(err => console.log(err))
+    res.redirect('/admin')
 }

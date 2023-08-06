@@ -1,5 +1,5 @@
 const express = require('express');
-const { loginHandler, loginPostHandler, adminHandler, logoutHandler, checkLogin, getAddNewProduct, postAddNewProduct } = require('../controllers/admin');
+const { loginHandler, loginPostHandler, adminHandler, logoutHandler, checkLogin, getAddNewProduct, postAddNewProduct, deleteProduct } = require('../controllers/admin');
 const app = express.Router();
 
 
@@ -9,6 +9,7 @@ app.post('/login', loginPostHandler)
 app.get('/', adminHandler)
 app.get('/add_new_product', getAddNewProduct)
 app.post('/add_new_product', postAddNewProduct)
+app.get('/delete/:id', deleteProduct)
 
 
 

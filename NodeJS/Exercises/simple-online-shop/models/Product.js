@@ -24,6 +24,10 @@ class Product {
         return db.execute('INSERT INTO `products` (`title`, `description`, `price`) VALUES (?,?,?)', [this.title, this.description, this.price]);
     }
 
+    static deleteProduct(id) {
+        return db.execute('DELETE FROM `products` WHERE id=?', [id])
+    }
+
     
 }
 

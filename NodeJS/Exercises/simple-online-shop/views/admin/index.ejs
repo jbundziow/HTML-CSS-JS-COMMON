@@ -39,8 +39,13 @@
               <td><%=product.title %></td>
               <td><%=product.description %></td>
               <td><%=product.price.toFixed(2) + '€' %></td>
+
               <td><a href="#" class="edit-link">Edit</a></td>
-              <td><a href="#" class="delete-link">Delete</a></td>
+              <td>
+                <a href="./admin/delete/<%=product.id%>" class="delete-link"
+                  >Delete</a
+                >
+              </td>
             </tr>
             <% }) %>
           </tbody>
