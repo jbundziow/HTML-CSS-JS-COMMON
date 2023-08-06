@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produkt</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/shop/productDetailsPage.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/cart">Cart [0]</a></li>
+        <li><a href="/admin">Admin</a></li>
+      </ul>
+    </nav>
+    <div class="product-details">
+      <a class="return-link" href="/">Homepage</a>
+      <h1 class="title"><%=product.title %></h1>
+      <p class="description"><%=product.description%></p>
+      <p class="price">Price: <%=product.price.toFixed(2) +'€' %></p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </body>
+</html>

@@ -11,6 +11,16 @@ class Product {
     static fetchAll() {
         return db.execute('SELECT * FROM `products`');
     }
+
+    static fetchOneProduct(id) {
+        return db.execute('SELECT * FROM `products` WHERE id=?', [id])   
+    }
+
+    static getAllIDs() {
+        return db.execute('SELECT id FROM `products`')
+    }
+
+    
 }
 
 module.exports = Product;

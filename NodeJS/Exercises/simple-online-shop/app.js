@@ -34,5 +34,8 @@ app.listen(PORT, 'localhost', () => {
 
 app.use('/', shopRoutes);
 app.use('/admin', adminRoutes);
+app.get('*', (req,res,next) => {
+  res.render('404')
+})
 
 

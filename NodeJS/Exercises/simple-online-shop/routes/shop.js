@@ -1,5 +1,5 @@
 const express = require('express');
-const { showHomepage } = require('../controllers/shop');
+const { showHomepage, showProductDetailsPage } = require('../controllers/shop');
 const app = express.Router();
 
 
@@ -9,5 +9,7 @@ app.get('/cart', (req,res,next) => {
     res.render('shop/cart')
 })
 
+
+app.get('/product/:id', showProductDetailsPage);
 
 module.exports = app;

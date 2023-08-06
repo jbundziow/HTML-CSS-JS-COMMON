@@ -23,7 +23,11 @@
           <h3 class="card-title"><%=product.title%></h3>
           <p class="card-price"><%=product.price.toFixed(2) + '€'%></p>
           <div class="card-buttons">
-            <button class="card-button see-more-button">See More</button>
+            <a
+              class="card-button see-more-button"
+              href="/product/<%=product.id%>"
+              >See More</a
+            >
             <button class="card-button add-to-cart-button">Add to Cart</button>
           </div>
         </div>
