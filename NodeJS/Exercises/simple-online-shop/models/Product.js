@@ -28,6 +28,10 @@ class Product {
         return db.execute('DELETE FROM `products` WHERE id=?', [id])
     }
 
+    updateOne() {
+        return db.execute('UPDATE `products` SET `title`=?, `description`=?, `price`=? WHERE `id`=?', [this.title, this.description, this.price, this.id]);
+    }
+
     
 }
 

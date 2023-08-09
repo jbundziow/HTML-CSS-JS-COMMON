@@ -1,8 +1,9 @@
 const express = require('express');
 const { admin } = require('../utilities/config');
 const Product = require('../models/Product');
-const { isProductDataValidated } = require('../data_validation/productValidation');
+const { isProductDataValidated, isEditProductDataValidated } = require('../data_validation/productValidation');
 
+// ############################ DO NOT DELETE OR MOVE ############################
 exports.checkLogin = (req,res,next) => {
     if(!req.session.admin && req.path !== '/login') {
         res.redirect('/admin/login');
@@ -11,6 +12,7 @@ exports.checkLogin = (req,res,next) => {
         next();
     }
 }
+// ##############################################################################
 
 exports.adminHandler = (req,res,next) => {
         Product.fetchAll()
@@ -72,18 +74,36 @@ exports.deleteProduct = (req,res,next) => {
     .catch(err => console.log(err))
 }
 
-exports.editProduct = (req,res,next) => {
+exports.getEditProduct = (req,res,next) => {
     productID = req.params.id;
 
     Product.fetchOneProduct(productID)
     .then(data => data[0])
     .then(product => {
     if(product.length === 1) {
-        res.render('admin/edit_product', {error: false, productID: productID, productData: product[0]})
-    }
+        let isError = false;
+        if(req.query.error !== undefined) {
+            isError = req.query.error.toLowerCase() === 'true'; //convert string to boolean
+        }
+        res.render('admin/edit_product', {error: isError, productData: product[0]})
+}
     else {
         res.render('404');
     }
     })
     
+}
+
+exports.postEditProduct = (req,res,next) => {
+    const {id} = req.params;
+    const {title, description, price} = req.body;
+    const productToEdit = new Product(id, title, description, price);
+    if(isEditProductDataValidated(productToEdit)) {
+    productToEdit.updateOne()
+    .then(res.redirect('/admin'))
+    .catch(err => console.log(err))
+    }
+    else {
+        res.redirect(`/admin/edit/${id}?error=true`)
+    }
 }
