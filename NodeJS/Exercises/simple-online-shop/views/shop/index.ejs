@@ -28,15 +28,22 @@
               href="/product/<%=product.id%>"
               >See More</a
             >
-            <button class="card-button add-to-cart-button">Add to Cart</button>
+            <button
+              class="card-button add-to-cart-button"
+              onclick="addProductToCard()"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
         <% }) } else { %>
         <h1>No products found!</h1>
         <% } %>
-
-        <!-- Add more product cards here as needed -->
       </div>
     </div>
+    <script type="text/javascript" src="/scripts/localStorage.js"></script>
+    <script>
+      console.log("hej");
+    </script>
   </body>
 </html>
