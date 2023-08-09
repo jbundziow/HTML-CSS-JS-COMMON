@@ -1,19 +1,19 @@
 const express = require('express');
-const { loginHandler, loginPostHandler, adminHandler, logoutHandler, checkLogin, getAddNewProduct, postAddNewProduct, deleteProduct } = require('../controllers/admin');
+const adminRoutes = require('../controllers/admin');
 const app = express.Router();
 
 
-app.all('*', checkLogin)
-app.get('/login', loginHandler)
-app.post('/login', loginPostHandler)
-app.get('/', adminHandler)
-app.get('/add_new_product', getAddNewProduct)
-app.post('/add_new_product', postAddNewProduct)
-app.get('/delete/:id', deleteProduct)
+app.all('*', adminRoutes.checkLogin)
+app.get('/login', adminRoutes.loginHandler)
+app.post('/login', adminRoutes.loginPostHandler)
+app.get('/', adminRoutes.adminHandler)
+app.get('/add_new_product', adminRoutes.getAddNewProduct)
+app.post('/add_new_product', adminRoutes.postAddNewProduct)
+app.get('/delete/:id', adminRoutes.deleteProduct)
+app.get('/edit/:id', adminRoutes.editProduct)
 
 
-
-app.get('/logout', logoutHandler)
+app.get('/logout', adminRoutes.logoutHandler)
 
 
 module.exports = app;

@@ -71,3 +71,19 @@ exports.deleteProduct = (req,res,next) => {
     .then(res.redirect('/admin'))
     .catch(err => console.log(err))
 }
+
+exports.editProduct = (req,res,next) => {
+    productID = req.params.id;
+
+    Product.fetchOneProduct(productID)
+    .then(data => data[0])
+    .then(product => {
+    if(product.length === 1) {
+        res.render('admin/edit_product', {error: false, productID: productID, productData: product[0]})
+    }
+    else {
+        res.render('404');
+    }
+    })
+    
+}
