@@ -16,6 +16,10 @@ exports.isProductDataValidated = (obj) => {
       if (isNaN(Number(obj.price))) {
         return false;
       }
+
+      if (Number(obj.price) < 0) {
+        return false;
+      }
     
       if (typeof obj.title !== 'string' || typeof obj.description !== 'string' || typeof Number(obj.price) !== 'number') {
         return false;

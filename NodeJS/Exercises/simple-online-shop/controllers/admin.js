@@ -68,6 +68,6 @@ exports.postAddNewProduct = (req,res,next) => {
 
 exports.deleteProduct = (req,res,next) => {
     Product.deleteProduct(req.params.id)
+    .then(res.redirect('/admin'))
     .catch(err => console.log(err))
-    res.redirect('/admin')
 }
