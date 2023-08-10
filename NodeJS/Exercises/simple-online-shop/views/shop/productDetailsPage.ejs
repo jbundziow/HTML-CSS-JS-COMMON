@@ -11,7 +11,9 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/cart">Cart [0]</a></li>
+        <li>
+          <a href="/cart">Cart [<span id="productsSumInCart">0</span>]</a>
+        </li>
         <li><a href="/admin">Admin</a></li>
       </ul>
     </nav>
@@ -22,5 +24,6 @@
       <p class="price">Price: <%=product.price.toFixed(2) +'€' %></p>
       <button class="add-to-cart">Add to Cart</button>
     </div>
+    <script type="text/javascript" src="/scripts/localStorage.js"></script>
   </body>
 </html>

@@ -11,7 +11,7 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/cart">Cart [0]</a></li>
+        <li><a href="/cart">Cart [<span id="productsSumInCart">0</span>]</a></li>
         <li><a href="/admin" class="active">Admin</a></li>
       </ul>
     </nav>
@@ -26,5 +26,6 @@
         <p class="login-message"><%=message%></p>
         <% } %>
     </form>
+    <script type="text/javascript" src="/scripts/localStorage.js"></script>
   </body>
 </html>

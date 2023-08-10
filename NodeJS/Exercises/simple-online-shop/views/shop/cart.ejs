@@ -11,7 +11,11 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/cart" class="active">Cart [0]</a></li>
+        <li>
+          <a href="/cart" class="active"
+            >Cart [<span id="productsSumInCart">0</span>]</a
+          >
+        </li>
         <li><a href="/admin">Admin</a></li>
       </ul>
     </nav>
@@ -54,5 +58,6 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript" src="/scripts/localStorage.js"></script>
   </body>
 </html>
