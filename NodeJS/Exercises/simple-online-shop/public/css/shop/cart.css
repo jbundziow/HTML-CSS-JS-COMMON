@@ -64,6 +64,7 @@
 }
 
 .checkout-button {
+  margin-top: 0.5em;
   padding: 10px 20px;
   background-color: #4caf50;
   color: #fff;
@@ -76,4 +77,34 @@
 
 .checkout-button:hover {
   background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #e57373;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.delete-button:hover {
+  background-color: #c62828;
+}
+
+.personal-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 1em;
+}
+input[type="text"] {
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #cac9c9;
 }
