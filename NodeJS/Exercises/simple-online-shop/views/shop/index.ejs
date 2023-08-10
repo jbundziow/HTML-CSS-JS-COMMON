@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sklep - strona główna</title>
+    <title>Shop - homepage</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/shop/index.css" />
   </head>
@@ -30,7 +30,7 @@
             >
             <button
               class="card-button add-to-cart-button"
-              onclick="addProductToCard()"
+              onclick="addProductToCard('<%=product.id%>')"
             >
               Add to Cart
             </button>
@@ -42,8 +42,5 @@
       </div>
     </div>
     <script type="text/javascript" src="/scripts/localStorage.js"></script>
-    <script>
-      console.log("hej");
-    </script>
   </body>
 </html>
