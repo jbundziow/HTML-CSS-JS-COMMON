@@ -10,7 +10,7 @@ const getProductsFromLocalStorage = () => {
 }
 
 const getProductsDataFromDatabase = (ids) => {
-    axios.get('/api/data')
+    axios.put('/api/data')
     .then(res => console.log(res))
     
 }

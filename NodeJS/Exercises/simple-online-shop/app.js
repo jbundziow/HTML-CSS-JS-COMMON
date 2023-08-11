@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 
 const shopRoutes = require('./routes/shop')
 const adminRoutes = require('./routes/admin')
+const apiRoutes = require('./routes/api')
 
 const db = require('./utilities/database')
 
@@ -34,6 +35,7 @@ app.listen(PORT, 'localhost', () => {
 
 app.use('/', shopRoutes);
 app.use('/admin', adminRoutes);
+app.use('/api', apiRoutes);
 app.get('*', (req,res,next) => {
   res.status(404).render('404')
 })

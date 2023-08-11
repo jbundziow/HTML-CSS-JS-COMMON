@@ -1,13 +1,11 @@
 const express = require('express');
-const { showHomepage, showProductDetailsPage } = require('../controllers/shop');
+const { showHomepage, showProductDetailsPage, showCartPage } = require('../controllers/shop');
 const app = express.Router();
 
 
 app.get('/', showHomepage)
 
-app.get('/cart', (req,res,next) => {
-    res.render('shop/cart')
-})
+app.get('/cart', showCartPage)
 
 
 app.get('/product/:id', showProductDetailsPage);

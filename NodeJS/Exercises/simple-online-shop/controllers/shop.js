@@ -37,3 +37,6 @@ exports.showProductDetailsPage = (req,res,next) => {
     .catch(err => console.log(err))
 }
 
+exports.showCartPage = (req,res,next) => {
+    res.render('shop/cart')
+}
