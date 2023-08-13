@@ -16,6 +16,11 @@ class Product {
         return db.execute('SELECT * FROM `products` WHERE id=?', [id])   
     }
 
+    static fetchProductsOfIds(ids) {
+        const placeholders = ids.map(() => '?').join(',');
+        return db.execute(`SELECT * FROM products WHERE id IN (${placeholders}) ORDER BY FIELD(id, ${placeholders})`, [...ids, ...ids])   
+    }
+
     static getAllIDs() {
         return db.execute('SELECT id FROM `products`')
     }

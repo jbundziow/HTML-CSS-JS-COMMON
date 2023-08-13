@@ -3,7 +3,7 @@ const {getProductsOfIDs} = require('../controllers/api');
 const app = express.Router();
 
 
-app.put('/data', getProductsOfIDs)
+app.put('/products-data', getProductsOfIDs)
 
 
 

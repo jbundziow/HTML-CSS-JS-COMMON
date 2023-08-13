@@ -10,14 +10,14 @@ const getProductsFromLocalStorage = () => {
 }
 
 const getProductsDataFromDatabase = (ids) => {
-    axios.put('/api/data')
+    axios.put('/api/products-data', {ids})
     .then(res => console.log(res))
     
 }
 
 const updateCart = () => {
     const {productIDsInCart: IDs, productQtyInCart: QTYs} = getProductsFromLocalStorage();
-    getProductsDataFromDatabase();
+    getProductsDataFromDatabase(IDs);
 
     const cartItems = document.querySelector('.cart-items');
     cartItems.innerHTML = '';
