@@ -26,12 +26,8 @@ function changeQuantity(element) {
     productQtyInCart[element.dataset.indexNum] = Number(element.value);
     localStorage.setItem('productQtyInCart', JSON.stringify(productQtyInCart));
 
-    //sum
-    productsSumInCart = 0;
-    productQtyInCart.forEach(element => productsSumInCart += element)
-    localStorage.setItem('productsSumInCart', JSON.stringify(productsSumInCart));
-    updateNumberOfProductsInCart();
 
+    updateNumberOfProductsInCart();
     updateCart()
 }
 

@@ -22,27 +22,23 @@ const addProductToCard = (id) => {
     localStorage.setItem('productIDsInCart', JSON.stringify(productIDsInCart));
     localStorage.setItem('productQtyInCart', JSON.stringify(productQtyInCart));
 
-    //sum
-    productsSumInCart = 0;
-    productQtyInCart.forEach(element => productsSumInCart += element)
-    localStorage.setItem('productsSumInCart', JSON.stringify(productsSumInCart));
-
-    updateNumberOfProductsInCart();
-
-    // const ids = localStorage.getItem('productIDsInCart');
-    // const qtys = localStorage.getItem('productQtyInCart');
     
-    // console.log(JSON.parse(ids));
-    // console.log(JSON.parse(qtys));
+    updateNumberOfProductsInCart();
 }
 
 const updateNumberOfProductsInCart = () => {
-    
+    let sum = 0;
+    const productQtyInCart = JSON.parse(localStorage.getItem('productQtyInCart')) || 0;
+    console.log(productsSumInCart);
+    productQtyInCart.forEach(element => sum += element)
+    localStorage.setItem('productsSumInCart', JSON.stringify(sum));
 
-    const productsSumInCart = JSON.parse(localStorage.getItem("productsSumInCart"));
+    // const productsSumInCart = JSON.parse(localStorage.getItem("productsSumInCart"));
     const productsSumInCartSpan = document.getElementById("productsSumInCart");
-    if (productsSumInCartSpan && productsSumInCart) {
-        productsSumInCartSpan.textContent = productsSumInCart;
+    if (productsSumInCartSpan && sum) {
+        productsSumInCartSpan.textContent = sum;
     }
 }
+
+
 updateNumberOfProductsInCart();
