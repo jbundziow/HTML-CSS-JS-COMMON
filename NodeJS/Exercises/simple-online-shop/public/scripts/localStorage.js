@@ -4,6 +4,7 @@ const productQtyInCart = JSON.parse(localStorage.getItem('productQtyInCart')) ||
 let productsSumInCart = JSON.parse(localStorage.getItem('productsSumInCart')) || 0;
 
 
+
 const addProductToCard = (id) => {
     id = Number(id);
     if(id === NaN) {
@@ -36,6 +37,8 @@ const addProductToCard = (id) => {
 }
 
 const updateNumberOfProductsInCart = () => {
+    
+
     const productsSumInCart = JSON.parse(localStorage.getItem("productsSumInCart"));
     const productsSumInCartSpan = document.getElementById("productsSumInCart");
     if (productsSumInCartSpan && productsSumInCart) {
