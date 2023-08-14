@@ -29,15 +29,14 @@ const addProductToCard = (id) => {
 const updateNumberOfProductsInCart = () => {
     let sum = 0;
     const productQtyInCart = JSON.parse(localStorage.getItem('productQtyInCart')) || 0;
-    console.log(productsSumInCart);
     productQtyInCart.forEach(element => sum += element)
     localStorage.setItem('productsSumInCart', JSON.stringify(sum));
 
-    // const productsSumInCart = JSON.parse(localStorage.getItem("productsSumInCart"));
     const productsSumInCartSpan = document.getElementById("productsSumInCart");
-    if (productsSumInCartSpan && sum) {
+    if (productsSumInCartSpan) {
         productsSumInCartSpan.textContent = sum;
     }
+    
 }
 
 
