@@ -88,6 +88,7 @@ const submitOrderHandler = (event) => {
     
     const data = {name, surname, productIDsInCart, productQtyInCart};
     axios.post('/api/submit-order', data)
+    .then(res => console.log(res))
 }
 
 
