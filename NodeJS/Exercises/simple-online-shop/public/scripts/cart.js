@@ -1,9 +1,3 @@
-// const axios = require('axios')
-// import axios from "axios";
-
-
-
-
 const getProductsFromLocalStorage = () => {
     const productIDsInCart = JSON.parse(localStorage.getItem('productIDsInCart')) || [];
     const productQtyInCart = JSON.parse(localStorage.getItem('productQtyInCart')) || [];
@@ -82,6 +76,18 @@ async function updateCart() {
 
     const totalPrice = document.querySelector('#total-price');
     totalPrice.textContent = sumPrice;
+}
+
+
+const submitOrderHandler = (event) => {
+    event.preventDefault();
+ 
+    const name = document.querySelector('#name').value;
+    const surname = document.querySelector('#surname').value;
+    const {productIDsInCart, productQtyInCart} = getProductsFromLocalStorage();
+    
+    const data = {name, surname, productIDsInCart, productQtyInCart};
+    axios.post('/api/submit-order', data)
 }
 
 
