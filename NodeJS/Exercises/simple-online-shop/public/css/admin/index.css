@@ -45,6 +45,9 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+tr:nth-child(odd) {
+  background-color: #cdcccc;
+}
 
 .edit-link,
 .delete-link {
@@ -82,6 +85,7 @@ tr:nth-child(even) {
 /* styles/orders.css */
 
 .page-title {
+  margin-top: 3rem;
   text-align: center;
 }
 
@@ -89,6 +93,7 @@ tr:nth-child(even) {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin-bottom: 5rem;
 }
 
 .order-table th,

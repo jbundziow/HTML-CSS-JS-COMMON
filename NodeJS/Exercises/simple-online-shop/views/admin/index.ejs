@@ -65,7 +65,8 @@
       >
 
       <div>
-        <h1 class="page-title">Order List</h1>
+        <h2 class="page-title">Order List</h2>
+        <% if(orders.length > 0) { %>
         <table class="order-table">
           <thead>
             <tr>
@@ -108,7 +109,9 @@
             <% }); %>
           </tbody>
         </table>
-
+        <% } else { %>
+        <h3>No orders!</h3>
+        <% } %>
         <div class="popup edit-popup">
           <div class="popup-content">
             <h2 class="popup-title">Edit Order Status</h2>
