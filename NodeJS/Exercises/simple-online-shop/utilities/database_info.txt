@@ -1,0 +1,29 @@
+There are 2 tables in MySQL:
+
+
+
+CREATE TABLE `products` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(4096) NOT NULL,
+  `price` float unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+CREATE TABLE `orders` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `customerName` varchar(45) NOT NULL,
+  `customerSurname` varchar(45) NOT NULL,
+  `productsIDs` json NOT NULL,
+  `productsQTYs` json NOT NULL,
+  `productsTitles` json NOT NULL,
+  `productsPrices` json NOT NULL,
+  `finalPrice` decimal(10,2) unsigned NOT NULL,
+  `orderDate` datetime NOT NULL,
+  `orderStatus` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

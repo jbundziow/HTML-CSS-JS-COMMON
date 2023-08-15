@@ -1,6 +1,7 @@
 const express = require('express');
 const { admin } = require('../utilities/config');
 const Product = require('../models/Product');
+const Order = require('../models/Order');
 const { isProductDataValidated, isEditProductDataValidated } = require('../data_validation/productValidation');
 
 // ############################ DO NOT DELETE OR MOVE ############################
@@ -14,16 +15,15 @@ exports.checkLogin = (req,res,next) => {
 }
 // ##############################################################################
 
-exports.adminHandler = (req,res,next) => {
-        Product.fetchAll()
-        .then(data => data[0])
-        .then(products => {
+exports.adminHandler = async (req,res,next) => {
+    let products = await Product.fetchAll();
+    let orders = await Order.fetchAll();
+
             res.render('admin/index', {
-            products: products
-            }
-        );
-        })
-        .catch(err => console.log(err));
+            products: products[0],
+            orders: orders[0]
+            })
+
 }
 
 exports.loginHandler = (req,res,next) => {
