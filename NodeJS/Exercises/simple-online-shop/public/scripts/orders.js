@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const editButtons = document.querySelectorAll('.edit-button');
     const editPopup = document.querySelector('.edit-popup');
-    const orderIdInput = document.querySelector('.order-id');
+    const orderIdInput = document.querySelector('.order-id-input');
     const newStatusSelect = document.querySelector('.new-status');
   
     editButtons.forEach(button => {

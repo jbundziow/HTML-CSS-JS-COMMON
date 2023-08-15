@@ -12,6 +12,7 @@ app.post('/add_new_product', adminRoutes.postAddNewProduct)
 app.get('/delete/:id', adminRoutes.deleteProduct)
 app.get('/edit/:id', adminRoutes.getEditProduct)
 app.post('/edit/:id', adminRoutes.postEditProduct)
+app.post('/editOrderStatus', adminRoutes.postEditOrderStatus);
 
 
 app.get('/logout', adminRoutes.logoutHandler)

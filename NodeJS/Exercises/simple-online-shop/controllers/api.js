@@ -37,20 +37,17 @@ exports.submitOrder = (req,res,next) => {
                 }
                 const newOrder = new Order(1, data.name, data.surname, data.productIDsInCart, data.productQtyInCart, productsTitles, productsPrices, finalPrice, orderDate, orderStatus);
                 newOrder.insertOne()
-                .then(
-                    Order.fetchAll().then(r => console.log(r[0]))
-                )
+                .then(result => {
+                    if(result[0].affectedRows) {
+                        res.status(200).send('Success! Your order has been sent to the administrator.')
+                    }
+                })
+                .catch((err) => res.status(400).send(err));
             }
             else {
-                console.log('shhes');
-                // res.status(400).send('There is a problem with fetching data from the database.')
+                res.status(400).send('There is a problem with fetching data from the database.')
             }
         })
-        
-        // TODO: insert data to database
-        // TODO: if succes: show ok
-        // TODO: clear form and localstorage on frontend
-        res.status(200).send('ok')
     }
     else {
         res.status(400).send('You have passed a bad data!')

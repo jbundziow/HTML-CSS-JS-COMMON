@@ -22,6 +22,10 @@ class Order {
         return db.execute('INSERT INTO `orders` (`customerName`, `customerSurname`, `productsIDs`, `productsQTYs`, `productsTitles`, `productsPrices`, `finalPrice`, `orderDate`, `orderStatus`) VALUES (?,?,?,?,?,?,?,?,?)', [this.customerName, this.customerSurname, this.productsIDs, this.productsQTYs, this.productsTitles, this.productsPrices, this.finalPrice, this.orderDate, this.orderStatus]);
     }
 
+    static changeStatus(id, newStatus) {
+        return db.execute('UPDATE `orders` SET orderStatus = (?) WHERE id = (?)', [newStatus, id]);
+    }
+
 }
 
 

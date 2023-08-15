@@ -115,14 +115,15 @@
         <div class="popup edit-popup">
           <div class="popup-content">
             <h2 class="popup-title">Edit Order Status</h2>
-            <form action="/editOrderStatus" method="post">
-              <input type="hidden" class="order-id" name="orderId" />
+            <form action="/admin/editOrderStatus" method="post">
+              <input type="hidden" class="order-id-input" name="orderId" />
               <label for="newStatus" class="popup-label">New Status:</label>
               <select class="new-status" name="newStatus">
                 <option value="0">Pending</option>
                 <option value="1">Processing</option>
                 <option value="2">Shipped</option>
                 <option value="3">Completed</option>
+                <option value="4">Cancelled</option>
               </select>
               <button type="submit" class="update-button">Update Status</button>
             </form>

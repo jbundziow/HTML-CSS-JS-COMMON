@@ -107,3 +107,14 @@ exports.postEditProduct = (req,res,next) => {
         res.redirect(`/admin/edit/${id}?error=true`)
     }
 }
+
+
+exports.postEditOrderStatus = (req,res,next) => {
+    const {orderId, newStatus} = req.body;
+    Order.changeStatus(orderId, newStatus)
+    .then(res.redirect('/admin'))
+    .catch(err => {
+        console.log(err);
+        res.redirect('/admin')
+    })
+}

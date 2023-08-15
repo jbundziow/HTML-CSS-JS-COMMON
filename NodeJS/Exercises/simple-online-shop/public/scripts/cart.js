@@ -43,7 +43,7 @@ async function updateCart() {
     cartItems.innerHTML = '';
     if(productsData.length === 0) {
         const h3 = document.createElement('h3');
-        h3.append('There are no products in the cart!');
+        h3.append('There are no products in the cart or you have completed your order!');
         cartItems.append(h3);
 
         const cartSummaryDiv = document.querySelector('.cart-total');
@@ -75,7 +75,10 @@ async function updateCart() {
     const sumPrice = allPrices.reduce((partialSum, a) => partialSum + a, 0).toFixed(2);
 
     const totalPrice = document.querySelector('#total-price');
+    if(totalPrice !== null) {
     totalPrice.textContent = sumPrice;
+    }
+    
 }
 
 
@@ -88,7 +91,13 @@ const submitOrderHandler = (event) => {
     
     const data = {name, surname, productIDsInCart, productQtyInCart};
     axios.post('/api/submit-order', data)
-    .then(res => console.log(res))
+    .then(response => {
+        if(response.status === 200) {
+            clearCartLocalStorage();
+            updateCart();
+            updateNumberOfProductsInCart();
+        }
+    })
 }
 
 
