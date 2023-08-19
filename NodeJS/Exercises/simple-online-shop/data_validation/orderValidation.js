@@ -59,6 +59,22 @@ exports.isOrderDataValidated = (obj) => {
         return false;
       }
 
+      //helper function
+      const isElementInArrayIsZero = arr => {
+        let result = false;
+        arr.forEach(e => {
+          if(e === 0) {
+          result = true;
+          }
+        })
+        return result;
+      }
+
+      if(isElementInArrayIsZero(obj.productQtyInCart)) {
+        return false;
+      }
+       
+
     
       if (obj.name === '' || obj.surname === '' ||
           obj.name === undefined || obj.surname === undefined) {
