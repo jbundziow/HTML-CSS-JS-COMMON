@@ -153,7 +153,18 @@ describe('isProductDataValidated() - passing the uncorrect object', () => {
         }
         expect(isProductDataValidated(obj)).toBeFalsy();
     })
-   
+    it('should return false 11',() => {
+        const obj = 'not object'
+        expect(isProductDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 12',() => {
+        const obj = {
+            title: 'sth',
+            description: true,
+            price: 22,
+        }
+        expect(isProductDataValidated(obj)).toBeFalsy();
+    })
 
 })
 
@@ -389,6 +400,37 @@ describe('isEditProductDataValidated() - passing the uncorrect object', () => {
             description: 'sth',
             price: 22,
         }
+        expect(isEditProductDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 15',() => {
+        const obj = {
+            id: 'not_number',
+            title: 'sth',
+            description: 'sth',
+            price: 22,
+        }
+        expect(isEditProductDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 16',() => {
+        const obj = {
+            id: 22,
+            title: 'sth',
+            description: 'sth',
+            priceeeeeee: 22,
+        }
+        expect(isEditProductDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 17',() => {
+        const obj = {
+            id: 22,
+            title: true,
+            description: 'sth',
+            price: 22,
+        }
+        expect(isEditProductDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 18',() => {
+        const obj = 'not obj'
         expect(isEditProductDataValidated(obj)).toBeFalsy();
     })
    

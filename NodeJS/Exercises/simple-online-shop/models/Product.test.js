@@ -79,3 +79,21 @@ describe('Product.fetchAll() test', () => {
         db.execute.mockClear();
     })
 })
+
+
+describe('Product.fetchProductsOfIds(ids) test', () => {
+    it('should map correctly ids', async () => {
+
+        db.execute = vi.fn(()=> Promise.resolve('sth'));
+        
+        const arr = [23, 22, 11, 7];
+        const spyIdsMap = vi.spyOn(arr, 'map');
+        const prods = await Product.fetchProductsOfIds(arr);
+
+        expect(spyIdsMap).toHaveBeenCalledTimes(1)
+        expect(db.execute).toHaveBeenCalledWith('SELECT * FROM products WHERE id IN (?,?,?,?) ORDER BY FIELD(id, ?,?,?,?)',[...arr, ...arr])
+        
+
+        db.execute.mockClear();
+    })
+});

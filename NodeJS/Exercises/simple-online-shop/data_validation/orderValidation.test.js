@@ -176,5 +176,27 @@ describe('isOrderDataValidated() - passing the uncorrect object', () => {
         }
         expect(isOrderDataValidated(obj)).toBeFalsy();
     })
+    it('should return false 17',() => {
+        const obj = 'not object'
+        expect(isOrderDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 18',() => {
+        const obj = {
+            name: 'John',
+            surname: 'Smith',
+            productIDsInCart: [],
+            productQtyInCart: []
+        }
+        expect(isOrderDataValidated(obj)).toBeFalsy();
+    })
+    it('should return false 19',() => {
+        const obj = {
+            name: 'John',
+            surname: 'Smith',
+            productIDsInCart: ['not a number'],
+            productQtyInCart: [2]
+        }
+        expect(isOrderDataValidated(obj)).toBeFalsy();
+    })
 
 })

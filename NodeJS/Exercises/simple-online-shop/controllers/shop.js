@@ -2,40 +2,44 @@ const express = require('express');
 const Product = require('../models/Product')
 
 
-exports.showHomepage = (req,res,next) => {
-    Product.fetchAll()
-    .then(data => data[0])
-    .then(products => {
-        res.render('./shop/index', {
-            products: products
-        })
+exports.showHomepage = async (req,res,next) => {
+    try {
+    const products = await Product.fetchAll();
+    res.render('./shop/index', {
+        products: products[0]
     })
-    .catch(err => console.log(err));
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
 
-exports.showProductDetailsPage = (req,res,next) => {
+
+exports.showProductDetailsPage = async (req,res,next) => {
+    try {
     const reqID = Number(req.params.id);
 
-    Product.getAllIDs()
-    .then(data => data[0].map(item => item.id))
-    .then(idsArr => {
-        if(idsArr.includes(reqID)) {
-            Product.fetchOneProduct(reqID)
-            .then(data => data[0])
-            .then(product => {
-            res.render('./shop/productDetailsPage', {
-                product: product[0]
-            })
-            })
-            .catch(err => console.log(err))
-        }
-        else {
-           next()
-        }
-    })
-    .catch(err => console.log(err))
-}
+    const allIDs = await Product.getAllIDs()
+    const idsArr = allIDs[0].map(item => item.id)
+   
+    if(idsArr.includes(reqID)) {
+        const product = await Product.fetchOneProduct(reqID)
+
+        res.render('./shop/productDetailsPage', {
+            product: product[0][0]
+        })
+
+    }
+    else {
+        next()
+    }
+    }
+    catch(err) {
+        console.log(err);
+        res.redirect('404')
+    }
+    }
 
 exports.showCartPage = (req,res,next) => {
     res.render('shop/cart')
