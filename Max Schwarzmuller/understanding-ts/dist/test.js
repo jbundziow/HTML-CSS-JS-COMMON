@@ -12,7 +12,7 @@ const what = () => {
         console.log(status);
     }
     if (orderStatus.Sent === status2) {
-        console.log('tag');
+        console.log('ok');
     }
     if (2 + 2 + 4 === 8) {
         status = orderStatus.Accepted;
