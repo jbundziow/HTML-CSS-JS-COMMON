@@ -5,3 +5,20 @@ Then, create concrete classes like Circle, Rectangle, and Triangle that inherit 
 */
 
 
+abstract class Shape {
+    constructor(public a: number) {
+        this.a = a;
+    }
+    abstract calculateArea(): number;
+}
+
+class Rectangle extends Shape {
+    calculateArea(): number {
+        return this.a;
+    }
+}
+
+
+const x = new Rectangle(5);
+const y = x.calculateArea();
+console.log(y);
