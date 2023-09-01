@@ -15,4 +15,3 @@ interface PersonA {
   
   console.log(person1); // Output: { firstName: 'John' }
   console.log(person2); // Output: { firstName: 'Alice', lastName: 'Smith' }
-
