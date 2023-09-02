@@ -109,37 +109,108 @@ It should have methods for adding, retrieving, and removing items by key.
 class Dictionary<K,V> {
     private items: Map<K,V> = new Map()
 
-    add(key: K, value: V) {
+    add(key: K, value: V): void {
         this.items.set(key,value);
+    }
+    get (key: K): V | undefined {
+        return this.items.get(key)
+    }
+    getAll () {
+        const obj: any = {};
+        this.items.forEach((value: V, key: K) => {
+            obj[key] = value;
+        })
+        return obj;
+    }
+    remove (key: K): void {
+        this.items.delete(key);
     }
     
 }
 
-/*
-9. Filter Function:
-Write a generic filterArray function that takes an array and a predicate function as arguments.
-It should return a new array containing only the elements that satisfy the predicate.
-*/
+const dictionary = new Dictionary<string,number>();
+dictionary.add('people', 227);
+dictionary.add('average_age', 21);
+dictionary.add('pets', 14);
+console.log(dictionary.getAll());
+dictionary.remove('average_age');
+console.log(dictionary.getAll());
+console.log(dictionary.get('pets'));
+console.log('\n');
+
 
 /*
-10. Promise Chain:
+9. Promise Chain:
 Write a function called chainPromises that takes an array of promises as input and returns a promise that resolves with an array of their resolved values.
 Ensure that the function works with promises of different types.
 */
 
+async function chainPromises<T extends any[]>(promises: [...T]): Promise<T> {
+    return Promise.all(promises);
+}
+const promise1 = Promise.resolve('string');
+const promise2 = Promise.resolve(23);
+const promise3 = Promise.resolve(true);
+
+
+chainPromises([promise1, promise2, promise3])
+.then(results => console.log(results))
+.then(() => console.log('\n'))
+.catch(err => console.log(err))
+
+
+
+
 /*
-11. Custom Result Type:
+10. Custom Result Type:
 Define a generic Result<T, E> type that represents the result of an operation.
 It should have two possible values: Ok(T) for a successful result and Err(E) for an error.
 Implement functions for creating and working with Result instances.
 */
 
+type Result<T, E> = { type: 'Ok'; value: T } | { type: 'Err'; error: E };
+
+function ok<T>(value: T): Result<T, never> {
+    return { type: 'Ok', value };
+}
+
+function err<E>(error: E): Result<never, E> {
+    return { type: 'Err', error };
+}
+
+
+const successResult: Result<number, string> = ok(42);
+const errorResult: Result<number, string> = err("Something went wrong");
+console.log(successResult);
+console.log(errorResult);
+console.log('\n')
+
+
+
 /*
-12. Queue Implementation:
+11. Queue Implementation:
 Create a generic queue class (Queue<T>) with methods for enqueueing and dequeuing items.
 Ensure type safety in the queue operations.
 */
 
+class Queue<T> {
+    private items: T[] = [];
+
+    enqueue(item: T): void {
+        this.items.push(item);
+    }
+
+    dequeue(): T | undefined {
+        return this.items.shift();
+    }
+}
+
+
+const queue = new Queue<number>();
+queue.enqueue(1);
+queue.enqueue(2);
+console.log(queue.dequeue()); // 1
+console.log('\n');
 
 
 
