@@ -1,3 +1,19 @@
+
+//function for decorator @autobind
+const autobind = (_: {}, _1: string, descriptor: PropertyDescriptor) => {
+    //_ and _1 are not used
+    const originalMethod = descriptor.value;
+    const adjDescriptor: PropertyDescriptor = {
+        configurable: true,
+        get() {
+            const boundFn = originalMethod.bind(this);
+            return boundFn;
+        }
+    };
+    return adjDescriptor;
+}
+
+
 class ProjectInput {
     public templateElement: HTMLTemplateElement; //template with form inside
     public hostElement: HTMLDivElement; //<div> #app
@@ -26,11 +42,15 @@ class ProjectInput {
     private attach(): void {
         this.hostElement.insertAdjacentElement('afterbegin', this.element) //attach form into <div> #app
     }
-
+    
     private configureSubmitBtn(): void {
-        this.element.addEventListener('submit', this.submitHandler.bind(this)) //use bind to pass 'this'
+        //@@@@@@@@@ bind(this) is not needed because of decorator @autobind below
+        // this.element.addEventListener('submit', this.submitHandler.bind(this)) //use bind to pass 'this'
+        this.element.addEventListener('submit', this.submitHandler);
     }
 
+
+    @autobind //using decorator instead .bind(this)
     private submitHandler(e: Event): void {
         e.preventDefault();
         console.log(this.titleInputElement.value);
