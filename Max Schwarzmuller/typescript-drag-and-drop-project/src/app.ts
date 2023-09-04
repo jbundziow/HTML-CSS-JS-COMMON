@@ -1,3 +1,5 @@
+import { validateInput } from "./validation.js";
+
 
 //function for decorator @autobind
 const autobind = (_: {}, _1: string, descriptor: PropertyDescriptor) => {
@@ -49,16 +51,56 @@ class ProjectInput {
         this.element.addEventListener('submit', this.submitHandler);
     }
 
+    private validateUserInputs(title: string, description: string, people: string): [string, string, number] | undefined {
+        const isTitleInputValidated: boolean = validateInput({
+            value: title,
+            required: true,
+            minLength: 1,
+            maxLength: 255,
+        })
+        const isDescriptionInputValidated: boolean = validateInput({
+            value: description,
+            required: true,
+            minLength: 1,
+            maxLength: 255,
+        })
+        const isPeopleInputValidated: boolean = validateInput({
+            value: +people,
+            required: true,
+            min: 1,
+            max: 10
+        })
+
+        if(isTitleInputValidated && isDescriptionInputValidated && isPeopleInputValidated) {
+            return [title, description, +people];
+        }
+        else {
+            return;
+        }
+    }
+
+    private clearInputs(): void {
+        this.titleInputElement.value = ''
+        this.descriptionInputElement.value = ''
+        this.peopleInputElement.value = ''
+    }
+
 
     @autobind //using decorator instead .bind(this)
     private submitHandler(e: Event): void {
         e.preventDefault();
-        console.log(this.titleInputElement.value);
-        console.log(this.descriptionInputElement.value);
-        console.log(this.peopleInputElement.value);
+        const inputsData = this.validateUserInputs(this.titleInputElement.value, this.descriptionInputElement.value, this.peopleInputElement.value);
+        if(inputsData) {
+            // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            //TODO: pass inputsData into function to add project
+            this.clearInputs();
+        }
+        else {
+            alert('You\'ve passed a wrong data!')
+        }
     }
 
 }
 
-
+    //@ts-ignore
     const prjInput = new ProjectInput();
